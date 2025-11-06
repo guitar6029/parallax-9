@@ -1,5 +1,6 @@
+
 <template>
-    <div>
-        <h1>Landing page</h1>
+    <div class="flex flex-col">
+        <P9Hero />
     </div>
 </template>
