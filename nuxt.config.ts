@@ -9,4 +9,10 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  fonts: {
+    families: [
+      { name: "Rajdhani", weights: [400, 600, 700] },
+      { name: "Exo 2", weights: [400, 500, 700] },
+    ],
+  },
 });
