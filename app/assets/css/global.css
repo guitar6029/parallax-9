@@ -11,6 +11,9 @@
   .trns {
     @apply transition ease-in-out duration-300;
   }
+  .centred-col {
+    @apply flex flex-col items-center justify-center;
+  }
 }
 
 
@@ -101,6 +104,14 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* GENERIC STYLES */
+body {
+  font-family: "Exo 2", sans-serif;
+  color: var(--pz-text);
+  background: var(--pz-bg);
+}
+
 
 /* ------------------------------
    COMPONENT STYLES

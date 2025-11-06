@@ -17,7 +17,7 @@ onMounted(() => {
 
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10">
                 <h1 class="text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold tracking-tight cyber">Parallax-9</h1>
-                <span class="text-2xl font-light opacity-80 font-tech">
+                <span class="text-2xl md:text-4xl font-light opacity-80 font-tech">
                     Reality is overrated. Experience something else.
                 </span>
             </div>
