@@ -29,9 +29,9 @@ const items: NavigationMenuItem[] = [
 <template>
     <aside class="sticky top-0 h-screen w-80 shrink-0 flex flex-col justify-around bg-(--pz-bg) text-(--pz-text)">
         <!-- top section -->
-        <div class="flex flex-col gap-1 items-center justify-center">
+        <div class="flex flex-col gap-2 items-center justify-center">
             <img :src="P9Logo" alt="Parallax-9 Logo" class="w-full opacity-80">
-            <span class="font-tech">Parallax-9</span>
+            <span class="font-tech text-center">Parallax-9</span>
         </div>
         <!-- Middle Section -->
         <nav class="flex flex-col items-center gap-2">
