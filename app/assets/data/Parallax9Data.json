@@ -1,0 +1,70 @@
+[
+  {
+    "id": 2,
+    "slug": "echo-diver",
+    "title": "Echo Diver",
+    "tier": 4,
+    "intensity": 4,
+    "durationMin": 60,
+    "priceCredits": 3200,
+    "tags": ["mystery", "subconscious", "oceanic"],
+    "summary": "Descend through layered dream‑reefs to recover a lost name.",
+    "heroImage": "/images/experiences/echo-diver.jpg",
+    "sensoryProfile": ["brine", "sonar pings", "bioluminal spray"],
+    "riskNotes": ["mild identity echo", "lucid residue"],
+    "reviews": [
+      { "name": "Kade", "rating": 4, "text": "Like scuba in my own head." }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "obsidian-shore",
+    "title": "The Obsidian Shore",
+    "tier": 3,
+    "intensity": 2,
+    "durationMin": 30,
+    "priceCredits": 1600,
+    "tags": ["noir", "romance", "seaside"],
+    "summary": "Stroll a rain‑slick boardwalk where every neon sign knows your secret.",
+    "heroImage": "/images/experiences/obsidian-shore.jpg",
+    "sensoryProfile": ["salt & ion", "analog jazz", "wet asphalt"],
+    "riskNotes": ["nostalgia amplification"],
+    "reviews": [
+      { "name": "Rin", "rating": 5, "text": "Bittersweet and beautiful." }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "chronos-fault",
+    "title": "Chronos Fault",
+    "tier": 5,
+    "intensity": 5,
+    "durationMin": 25,
+    "priceCredits": 4500,
+    "tags": ["time-loop", "high-risk", "pursuit"],
+    "summary": "Break a 9‑minute loop before the city resets. Every choice scars the timeline.",
+    "heroImage": "/images/experiences/chronos-fault.jpg",
+    "sensoryProfile": ["clock‑static", "ion flashes", "blood orange sky"],
+    "riskNotes": ["temporal déjà‑vu", "short‑term recursion"],
+    "reviews": [
+      { "name": "Voss", "rating": 5, "text": "Hard as hell. Perfect." }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "driftline-sonata",
+    "title": "Driftline Sonata",
+    "tier": 1,
+    "intensity": 1,
+    "durationMin": 50,
+    "priceCredits": 1100,
+    "tags": ["calm", "floating-city", "music"],
+    "summary": "Glide over sky‑rails of a city that sings back to you.",
+    "heroImage": "/images/experiences/driftline-sonata.jpg",
+    "sensoryProfile": ["amber chords", "high air", "cool glass"],
+    "riskNotes": ["soft after‑glow"],
+    "reviews": [
+      { "name": "Mae", "rating": 4, "text": "Meditative and gorgeous." }
+    ]
+  }
+]
