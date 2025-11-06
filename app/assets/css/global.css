@@ -1,1 +1,206 @@
+/* ===============================
+   GLOBAL STYLES – PARALLAX-9 THEME
+   =============================== */
+
+/* Tailwind + Animations */
 @import "tailwindcss";
+@import "./animations.css";
+
+/* ------------------------------
+   Custom Font
+------------------------------ */
+@font-face {
+  font-family: "Cyberpunk";
+  src: url("../fonts/Xeonic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.cyber {
+  font-family: "Cyberpunk";
+}
+
+/* ------------------------------
+   PARALLAX-9 THEME TOKENS
+------------------------------ */
+:root {
+  /* Core palette */
+  --pz-bg: #0b0f12; /* deep charcoal */
+  --pz-bg-2: #141821; /* gunmetal */
+  --pz-surface: #1e2230; /* card surface */
+  --pz-text: #e6e6e6; /* primary text */
+  --pz-text-dim: #b7bdc7; /* secondary text */
+
+  --pz-neon: #ff2fd1; /* neon pink */
+  --pz-neon-2: #66eaff; /* cool cyan */
+  --pz-purple: #6a48ff; /* subtle violet */
+  --pz-chrome: #cfd6e6; /* specular highlight */
+
+  /* Opacities */
+  --pz-overlay-60: rgba(0, 0, 0, 0.6);
+  --pz-overlay-30: rgba(0, 0, 0, 0.3);
+  --pz-border: rgba(255, 255, 255, 0.08);
+
+  /* Radii / spacing */
+  --pz-radius: 18px;
+  --pz-radius-lg: 24px;
+  --pz-pad: 14px;
+
+  /* Shadows / glows */
+  --pz-glow: 0 0 18px rgba(255, 47, 209, 0.55);
+  --pz-glow-cyan: 0 0 14px rgba(102, 234, 255, 0.45);
+  --pz-elev: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* ------------------------------
+   THEME WRAPPER
+------------------------------ */
+.theme-parallax9 {
+  color: var(--pz-text);
+  background: radial-gradient(
+      1200px 800px at 70% -10%,
+      rgba(255, 47, 209, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0b0f12 0%, #0b0f12 50%, #141821 100%);
+}
+
+/* ------------------------------
+   TYPOGRAPHY
+------------------------------ */
+@font-face {
+  font-family: "ParallaxDisplay";
+  src: local("Orbitron"), local("Rajdhani");
+  font-display: swap;
+}
+
+.heading-pz {
+  font-family: "ParallaxDisplay", "Cyberpunk", ui-sans-serif, system-ui;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------
+   COMPONENT STYLES
+------------------------------ */
+.card-pz {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid var(--pz-border);
+  border-radius: var(--pz-radius);
+  box-shadow: var(--pz-elev);
+  backdrop-filter: blur(8px);
+}
+
+.rail-pz {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-left: 1px solid var(--pz-border);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 0 24px rgba(255, 47, 209, 0.15);
+}
+
+.btn-pz {
+  --ring: var(--pz-neon);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: var(--pz-text);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 47, 209, 0.22),
+    rgba(102, 234, 255, 0.18)
+  );
+  border: 1px solid var(--pz-border);
+  box-shadow: var(--pz-glow), var(--pz-glow-cyan);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+.btn-pz:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgba(255, 47, 209, 0.6),
+    0 0 22px rgba(102, 234, 255, 0.45);
+}
+.btn-pz:active {
+  transform: translateY(0);
+}
+
+/* ------------------------------
+   TEXT EFFECTS
+------------------------------ */
+.neon-title {
+  color: #fff;
+  text-shadow: 0 0 2px #fff, 0 0 24px var(--pz-neon), 0 0 32px var(--pz-neon-2);
+  filter: saturate(1.05);
+}
+
+.neon-subtle {
+  text-shadow: 0 0 14px rgba(255, 47, 209, 0.45);
+  color: var(--pz-text-dim);
+}
+
+/* ------------------------------
+   HERO / LAYER HELPERS
+------------------------------ */
+.hero-overlay-30 {
+  background: var(--pz-overlay-30);
+}
+.hero-overlay-60 {
+  background: var(--pz-overlay-60);
+}
+
+/* ------------------------------
+   UTILITY FX
+------------------------------ */
+.line-pz {
+  border-color: var(--pz-border);
+}
+
+.scanlines {
+  pointer-events: none;
+  background-image: linear-gradient(
+    transparent 95%,
+    rgba(255, 255, 255, 0.06) 96%
+  );
+  background-size: 100% 3px;
+  mix-blend-mode: overlay;
+}
+
+.noise {
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+.ring-neon {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 28px rgba(255, 47, 209, 0.55), 0 0 36px rgba(102, 234, 255, 0.35);
+}
+
+/* ------------------------------
+   SCROLLBAR
+------------------------------ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--pz-neon), var(--pz-neon-2));
+  border-radius: 999px;
+  border: 2px solid transparent;
+}
