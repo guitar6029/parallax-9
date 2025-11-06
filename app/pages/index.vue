@@ -6,11 +6,11 @@ import Philosophy from "~/components/indexView/Philosophy.vue";
 </script>
 
 <template>
-    <div class="flex flex-col gap-2 p-2">
+    <div class="flex flex-col gap-40 p-2">
         <P9Hero />
         <NetworkExpands />
         <Testimonials />
         <Metrics />
-        <Philosophy />        
+        <Philosophy />
     </div>
 </template>
