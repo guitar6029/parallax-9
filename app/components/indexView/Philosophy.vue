@@ -77,9 +77,10 @@ import SectionImg from "@/assets/img/section-bg.jpg"
             <img :src="SectionImg" alt="ethereal cyberpunk dreamscape"
                 class="absolute inset-0 w-full h-full object-cover z-0 opacity-50" />
         </div>
-        <div class="flex flex-col gap-2 z-10">
-            <h1 class="section-title">Reality isn &apos;t broken. It&apos;s obsolete.</h1>
-            <blockquote class="text-xl leading-relaxed max-w-3xl">
+        <div class="flex flex-col items-center gap-2 z-10">
+            <h1 class="section-title">Reality isn &apos;t broken.</h1>
+            <h1 class="section-title">It&apos;s <span class="text-(--pz-neon)">obsolete.</span></h1>
+            <blockquote class="text-3xl leading-relaxed max-w-3xl">
                 <p>Parallax-9 exists to transcend the physical threshold.</p>
                 <p>We fabricate new worlds — designed, tested, and emotionally tuned for those who crave more than
                     existence.</p>
