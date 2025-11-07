@@ -33,13 +33,13 @@ onMounted(() => {
         <div
             class="hidden lg:absolute md:top-[150vh] md:left-0 md:h-200 md:w-2 md:flex md:flex-col md:items-center md:justify-center md:gap-2 bg-(--pz-neon)/50  border-0 border-b-2 border-(--pz-neon)">
         </div>
-        <div
+        <!-- <div
             class="hidden lg:absolute md:top-[95vh] md:left-10 md:h-40 md:w-40 md:flex md:flex-col md:items-center md:justify-center md:gap-2 bg-(--pz-neon)/20  border-0 border-l-2 border-b-2 border-(--pz-neon)">
             <span class="cyber text-4xl skew-x-26 text-(--pz-neon)
   [text-shadow:1px_1px_0_#0ff,2px_2px_0_#09f,3px_3px_0_#007]">
                 P9
             </span>
-        </div>
+        </div> -->
 
 
 

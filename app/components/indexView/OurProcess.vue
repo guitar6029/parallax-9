@@ -1,9 +1,5 @@
 <script setup lang="ts">
-
-import phase1 from "@/assets/img/phase-1.jpg"
-import phase2 from "@/assets/img/phase-2.jpg"
-import phase3 from "@/assets/img/phase-3.jpg"
-
+import { phases } from "@/assets/data/phase/data"
 const getPhaseStyle = (index: number) => {
     // even index → one direction, odd index → reversed
     return index % 2 === 0
@@ -12,41 +8,19 @@ const getPhaseStyle = (index: number) => {
 }
 
 
-const phases = [
-    {
-        id: 1,
-        title: "01",
-        subtitleText: "Consultation",
-        tagline: "Define the impossible.",
-        phaseDescription:
-            "Meet a Parallax-9 Dream Architect to design your ideal sensory profile. Together, we map your neural patterns and aesthetic preferences to craft the blueprint of your new reality.",
-        image: phase1
-    },
-    {
-        id: 2,
-        title: "02",
-        subtitleText: "Synthesis",
-        tagline: "Code meets consciousness.",
-        phaseDescription:
-            "Our architects turn emotion into architecture. Using the Neuro-Construct Engine, we fuse memories and stimuli into a unified experiential lattice, tested within lucid environments.",
-        image: phase2
-    },
-    {
-        id: 3,
-        title: "03",
-        subtitleText: "Activation",
-        tagline: "Enter the new reality.",
-        phaseDescription:
-            "Your Construct is uploaded to the Parallax-9 Network. Activate through an Integration Hub or uplink capsule as your consciousness seamlessly transitions into its new frame.",
-        image: phase3
-    }
-]
-
 </script>
 
 
 <template>
-    <section class="sect-container">
+    <section class="sect-container relative">
+        <!-- TODO create component for the shapes  -->
+        <div class="absolute hidden lg:flex bottom-10 h-full w-200 bg-(--pz-neon)/5 shape-4 z-10">
+        </div>
+        <div class="absolute hidden lg:flex bottom-0 left-10 h-full w-200 bg-(--pz-neon)/10 shape-4 z-20">
+        </div>
+        <div class="absolute hidden lg:flex -bottom-10 left-20 h-full w-200 bg-(--pz-neon)/10 shape-4 z-30">
+        </div>
+
         <div class="min-h-[50dvh] flex flex-col gap-4 items-center justify-center">
             <h1 class="section-title">From <span class="text-(--pz-neon)">Thought</span> to <span
                     class="text-(--pz-purple)">Immersion</span></h1>
@@ -56,6 +30,10 @@ const phases = [
                 creation.
                 Every stage merges human intent with synthetic precision.</p>
         </div>
+    </section>
+    <section class="sect-container ">
+
+
 
         <div v-for="phase in phases" :key="phase.id"
             class="flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2"
@@ -69,12 +47,12 @@ const phases = [
                             <span class="uppercase">Phase</span>
                             <span class="text-8xl">{{
                                 phase.title
-                                }}</span>
+                            }}</span>
                         </div>
 
 
                     </div>
-                    <div class=" min-w-[400px] border border-(--pz-chrome">
+                    <div class=" min-w-[100px] border border-(--pz-chrome">
                         <img :src="phase.image" :alt="phase.title + ' phase'" class="shadow-2xl shadow-white/30">
                     </div>
                 </div>
