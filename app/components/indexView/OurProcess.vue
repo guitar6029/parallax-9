@@ -82,13 +82,15 @@ const phases = [
 
 
             <div class="flex flex-col items-start gap-2 z-20">
-                <h4 class="text-6xl text-(--pz-purple) italic">{{ phase.subtitleText }}</h4>
+                <h4 class="text-6xl text-(--pz-purple) cyber">{{ phase.subtitleText }}</h4>
             </div>
 
 
             <div class="lg:w-1/2 w-full flex flex-col gap-2">
                 <p class="text-left lg:text-center text-2xl lg:text-4xl">{{ phase.phaseDescription }}</p>
             </div>
+
+            <!-- <Icon name="material-symbols:arrow-outward-rounded" class="text-(--pz-neon)" /> -->
 
 
         </div>

@@ -93,7 +93,7 @@
     @apply text-4xl lg:text-8xl font-bold;
   }
   .sect-container {
-    @apply bg-(--pz-bg) flex flex-col items-center justify-center text-center gap-10 p-2;
+    @apply flex flex-col items-center justify-center text-center gap-10 p-2;
   }
 }
 

@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-    <div class="flex min-w-[500px] flex-col items-center gap-2 p-2 bg-(--pz-surface)/20 rounded-2xl">
+    <div class="flex min-h-[300px] min-w-[500px] flex-col justify-center items-center gap-2 p-2 bg-(--pz-surface)/20 rounded-2xl">
         <h1 class="text-2xl lg:text-4xl font-bold">{{ label }}</h1>
         <span class="min-w-40 text-4xl font-bold font-tech p-2 roundex-xl bg-(--pz-bg-2)/50 text-(--pz-neon) ">{{ value
             }}</span>

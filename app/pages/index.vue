@@ -7,11 +7,14 @@ import OurProcess from "~/components/indexView/OurProcess.vue";
 </script>
 
 <template>
-    <div class="flex flex-col gap-40 p-2">
+    <div class="flex flex-col p-2">
         <P9Hero />
-        <NetworkExpands />
-        <Testimonials />
-        <Metrics />
+        <div class="p-20 flex flex-col bg-linear-to-b from-(--pz-neon)/20 to-(--pz-bg-2)">
+            <NetworkExpands />
+            <Testimonials />
+            <Metrics />
+        </div>
+
         <Philosophy />
         <OurProcess />
     </div>

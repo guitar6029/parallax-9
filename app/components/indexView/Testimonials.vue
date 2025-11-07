@@ -31,7 +31,7 @@ const testimonials = [
 <template>
 
     <!-- endoresments from the elite -->
-    <section class="sect-container">
+    <section class="sect-container mt-20">
         <h1 class="section-title">Trusted by the Architects of Tomorrow</h1>
         <div class="flex flex-col gap-10">
             <div v-for="testimonial in testimonials" :key="testimonial.name" class="flex flex-col gap-2 text-4xl">
