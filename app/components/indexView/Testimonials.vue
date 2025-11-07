@@ -5,10 +5,10 @@ import { testimonials } from '@/assets/data/testimonials/data'
 <template>
     <section class="sect-container mt-20 relative flex flex-col items-center justify-center">
         <!-- Background shape layer -->
-        <div class="absolute inset-0 z-10 hidden md:flex items-center justify-center">
+        <!-- <div class="absolute inset-0 z-10 hidden md:flex items-center justify-center">
             <div class="w-200 h-150 bg-(--pz-neon)/10 border-0 border-l-2 shape-2">
             </div>
-        </div>
+        </div> -->
         <!-- Main content -->
         <div class="relative z-30 flex flex-col gap-10 items-center text-center">
             <h1 class="section-title">Trusted by the Architects of Tomorrow</h1>

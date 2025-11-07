@@ -14,12 +14,12 @@ const getPhaseStyle = (index: number) => {
 <template>
     <section class="sect-container relative">
         <!-- TODO create component for the shapes  -->
-        <div class="absolute hidden lg:flex bottom-10 h-full w-200 bg-(--pz-neon)/5 shape-4 z-10">
+        <!-- <div class="absolute hidden lg:flex bottom-10 h-full w-200 bg-(--pz-neon)/5 shape-4 z-10">
         </div>
         <div class="absolute hidden lg:flex bottom-0 left-10 h-full w-200 bg-(--pz-neon)/10 shape-4 z-20">
         </div>
         <div class="absolute hidden lg:flex -bottom-10 left-20 h-full w-200 bg-(--pz-neon)/10 shape-4 z-30">
-        </div>
+        </div> -->
 
         <div class="min-h-[50dvh] flex flex-col gap-4 items-center justify-center">
             <h1 class="section-title">From <span class="text-(--pz-neon)">Thought</span> to <span
