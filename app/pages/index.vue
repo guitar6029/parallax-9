@@ -32,7 +32,7 @@ onMounted(() => {
                 {{ letter }}
             </span>
         </div>
-        <div class="hidden md:block md:absolute md:top-[150vh] md:left-0 md:h-400 md:w-25  bg-(--pz-neon)/20">
+        <div class="hidden md:block md:absolute md:top-[150vh] md:left-0 md:h-400 md:w-5  bg-(--pz-neon)/20">
         </div>
         <div class="absolute top-[50vh] -right-70 h-200 w-100  bg-(--pz-neon)/10 ">
         </div>

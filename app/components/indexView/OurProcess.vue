@@ -72,7 +72,7 @@ const getPhaseStyle = (index: number) => {
                         <span class="uppercase">Phase</span>
                         <span class="text-[5rem] cyber">{{
                             phase.title
-                        }}</span>
+                            }}</span>
                     </div>
                 </div>
             </div>
