@@ -79,8 +79,6 @@
     linear-gradient(180deg, #0b0f12 0%, #0b0f12 50%, #141821 100%);
 }
 
-
-
 /* Utility Classes */
 @layer utilities {
   .trns {
@@ -97,7 +95,6 @@
     @apply flex flex-col items-center justify-center text-center gap-10 p-2;
   }
 }
-
 
 /* ------------------------------
    TYPOGRAPHY
