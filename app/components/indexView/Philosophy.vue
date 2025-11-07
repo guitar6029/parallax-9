@@ -80,6 +80,17 @@ import SectionImg from "@/assets/img/section-bg.jpg"
                 class="absolute inset-0 w-full h-full object-cover z-0 opacity-50" />
         </div>
         <div class="flex flex-col items-center gap-2 z-11">
+
+            <h1 class="section-title">From <span class="text-(--pz-neon)">Thought</span> to <span
+                    class="text-(--pz-purple)">Immersion</span></h1>
+            <h4 class="text-3xl italic font-tech">"Every CMC begins as an idea — and ends as an awakening."</h4>
+            <p class="text-xl md:text-2xl leading-relaxed tracking-wide text-(--pz-chrome)/90
+                max-w-2xl text-center mx-auto font-light italic">
+                Each Curated Memory Construct is meticulously assembled through a closed-loop
+                triad of creation. Every stage merges human intent with synthetic precision.
+            </p>
+        </div>
+        <div class="flex flex-col mt-10 items-center gap-2 z-11">
             <h1 class="section-title">Reality isn &apos;t broken.</h1>
             <h1 class="section-title">It&apos;s <span class="text-(--pz-neon)">obsolete.</span></h1>
             <blockquote class="text-3xl leading-relaxed max-w-3xl">

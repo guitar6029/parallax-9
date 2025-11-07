@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { phases } from "@/assets/data/phase/data"
+import SectionImg from "@/assets/img/section-bg.jpg"
 const getPhaseStyle = (index: number) => {
     // even index → one direction, odd index → reversed
     return index % 2 === 0
@@ -12,28 +13,13 @@ const getPhaseStyle = (index: number) => {
 
 
 <template>
-    <section class="sect-container relative">
-
-
-        <div class="absolute hidden z-1 lg:block lg:h-100 lg:w-full trapezoid bg-(--pz-neon)/10"></div>
-        <div class="absolute hidden z-2 lg:block lg:h-75 lg:w-150 trapezoid bg-(--pz-neon)/11"></div>
-        <div class="min-h-[50dvh] flex flex-col gap-4 items-center justify-center">
-            <h1 class="section-title">From <span class="text-(--pz-neon)">Thought</span> to <span
-                    class="text-(--pz-purple)">Immersion</span></h1>
-            <h4 class="text-3xl italic font-tech">"Every CMC begins as an idea — and ends as an awakening."</h4>
-            <p class="text-xl md:text-2xl leading-relaxed tracking-wide text-(--pz-chrome)/90
-         max-w-2xl text-center mx-auto font-light italic">
-                Each Curated Memory Construct is meticulously assembled through a closed-loop
-                triad of creation. Every stage merges human intent with synthetic precision.
-            </p>
-        </div>
-
-
-    </section>
-    <section class="sect-container ">
+    <section class="sect-container">
         <div v-for="phase in phases" :key="phase.id"
-            class="flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2"
+            class="relative flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2"
             :class="getPhaseStyle(phase.id)">
+
+            <div class="w-10 h-full absolute left-0 bg-(--pz-neon)/10"></div>
+
             <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
 
                 <div class="relative w-full border border-(--pz-chrome">
@@ -77,7 +63,7 @@ const getPhaseStyle = (index: number) => {
                         <span class="uppercase">Phase</span>
                         <span class="text-[5rem] cyber">{{
                             phase.title
-                            }}</span>
+                        }}</span>
                     </div>
                 </div>
             </div>
