@@ -1,15 +1,26 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
+const ready = ref(false)
+onMounted(() => {
+  ready.value = true
+})
+</script>
+
 <template>
-  <UApp>
-    <!-- Lock to viewport; prevent page scroll -->
+  <!-- Loading screen -->
+  <div v-if="!ready" class="h-dvh flex items-center justify-center bg-(--pz-bg)">
+    <span class="cyber text-6xl tracking-widest">LOADING…</span>
+  </div>
+
+  <!-- App -->
+  <UApp v-else>
     <div class="h-dvh overflow-hidden flex">
       <!-- LEFT: Main column (main + footer) -->
       <div class="flex flex-1 min-w-0 flex-col">
-        <!-- The only scroller -->
-        <main class="flex-1 min-h-0 overflow-y-auto">
+        <main class="flex-1 min-h-0 overflow-y-auto bg-(--pz-bg)">
           <NuxtPage />
         </main>
-
-        <!-- Footer sits under MAIN only -->
         <P9Footer class="shrink-0" />
       </div>
 
