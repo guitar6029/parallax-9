@@ -20,16 +20,18 @@ const getPhaseStyle = (index: number) => {
 
             <div class="w-10 h-full absolute left-0 bg-(--pz-neon)/10"></div>
             <div class="w-[.1rem] h-full absolute left-20 bg-(--pz-yellow)"></div>
-        
+
 
             <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
 
                 <div class="relative w-full border border-(--pz-chrome">
 
                     <!-- main image -->
-                    <div class="relative">
-                        <img :src="phase.image" :alt="phase.title + ' phase'" class="shadow-2xl shadow-white/30 border-2 border-(--pz-yellow)">
-                        <div class="absolute flex flex-col items-center justify-center top-0 right-0 border-2 w-25 h-25 bg-(--pz-neon)/50">
+                    <div class="relative trns hover:opacity-100 hover:skew-x-[.5deg] opacity-90">
+                        <img :src="phase.image" :alt="phase.title + ' phase'"
+                            class=" shadow-2xl shadow-white/30 border-2 border-(--pz-yellow)">
+                        <div
+                            class="absolute flex flex-col items-center justify-center top-0 right-0 border-2 w-25 h-25 bg-(--pz-neon)/50">
                             <span>phase</span>
                             <span class="cyber font-bold text-2xl">{{ phase.title }}</span>
                         </div>
