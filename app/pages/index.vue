@@ -27,13 +27,15 @@ onMounted(() => {
                 {{ letter }}
             </span>
         </div>
-        <div
-            class="hidden lg:absolute md:top-[50vh] md:right-0 md:h-200 md:w-5 md:flex md:flex-col md:items-center md:justify-center md:gap-2 bg-(--pz-text)/50  ">
+        <div class="hidden lg:absolute md:top-[50vh] md:right-0 md:h-200 md:w-5 bg-(--pz-text)/50  ">
         </div>
-        <div
-            class="hidden lg:absolute md:top-[150vh] md:left-0 md:h-200 md:w-2 md:flex md:flex-col md:items-center md:justify-center md:gap-2 bg-(--pz-neon)/50  border-0 border-b-2 border-(--pz-neon)">
+        <div class="hidden md:block md:absolute md:top-[150vh] md:left-0 md:h-200 md:w-2  bg-(--pz-chrome)/50">
         </div>
         <Philosophy />
+        <div class="hidden absolute md:block md:top-[50vh] md:-right-150 md:h-200 md:w-200  bg-(--pz-neon)/10 ">
+        </div>
+        <div class="hidden absolute md:block md:bottom-0 md:right-0 md:h-200 md:w-5  bg-(--pz-neon)/10 ">
+        </div>
         <OurProcess />
     </div>
 </template>

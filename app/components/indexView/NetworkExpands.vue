@@ -3,21 +3,21 @@
 
         <div class="relative hidden  lg:flex lg:flex-col lg:items-center lg:justify-center lg:h-100 lg:w-full">
             <!-- Background Shape Layer -->
-            <div class="absolute top-0 inset-0 bg-(--pz-neon)/10 bevel z-10">
-            </div>
-            
-            <div class="absolute top-10 inset-0 bg-(--pz-neon)/10 bevel z-11">
+            <div class="absolute top-0 inset-0 bg-(--pz-neon)/10 trapezoid z-10">
             </div>
 
-            <div class="absolute top-20 inset-0 bg-(--pz-neon)/20 bevel z-12">
+            <div class="absolute top-10 inset-0 bg-(--pz-neon)/10 trapezoid z-11">
             </div>
 
-            <div class="absolute top-30 inset-0 bg-(--pz-neon)/30 bevel z-13">
+            <div class="absolute top-20 inset-0 bg-(--pz-neon)/20 trapezoid z-12">
             </div>
 
-            <div class="absolute top-40 inset-0 bg-(--pz-neon)/40 bevel z-14">
+            <div class="absolute top-30 inset-0 bg-(--pz-neon)/30 trapezoid l z-13">
             </div>
-            <div class="absolute top-50 inset-0 bg-(--pz-neon)/50 bevel z-15">
+
+            <div class="absolute top-40 inset-0 bg-(--pz-neon)/40 trapezoid z-14">
+            </div>
+            <div class="absolute top-50 inset-0 bg-(--pz-neon)/50 trapezoid z-15">
             </div>
 
             <!-- Foreground Text Layer -->

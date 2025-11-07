@@ -13,33 +13,27 @@ const getPhaseStyle = (index: number) => {
 
 <template>
     <section class="sect-container relative">
-        <!-- TODO create component for the shapes  -->
-        <!-- <div class="absolute hidden lg:flex bottom-10 h-full w-200 bg-(--pz-neon)/5 shape-4 z-10">
-        </div>
-        <div class="absolute hidden lg:flex bottom-0 left-10 h-full w-200 bg-(--pz-neon)/10 shape-4 z-20">
-        </div>
-        <div class="absolute hidden lg:flex -bottom-10 left-20 h-full w-200 bg-(--pz-neon)/10 shape-4 z-30">
-        </div> -->
 
+
+        <div class="absolute hidden z-1 lg:block lg:h-100 lg:w-full trapezoid bg-(--pz-neon)/10"></div>
+        <div class="absolute hidden z-2 lg:block lg:h-75 lg:w-150 trapezoid bg-(--pz-neon)/11"></div>
         <div class="min-h-[50dvh] flex flex-col gap-4 items-center justify-center">
             <h1 class="section-title">From <span class="text-(--pz-neon)">Thought</span> to <span
                     class="text-(--pz-purple)">Immersion</span></h1>
-            <h4 class="text-3xl italic">"Every CMC begins as an idea — and ends as an awakening."</h4>
-            <p class="text-3xl w-full lg:w-1/2">Each Curated Memory Construct is meticulously assembled through a
-                closed-loop triad of
-                creation.
-                Every stage merges human intent with synthetic precision.</p>
+            <h4 class="text-3xl italic font-tech">"Every CMC begins as an idea — and ends as an awakening."</h4>
+            <p class="text-xl md:text-2xl leading-relaxed tracking-wide text-(--pz-chrome)/90
+         max-w-2xl text-center mx-auto font-light italic">
+                Each Curated Memory Construct is meticulously assembled through a closed-loop
+                triad of creation. Every stage merges human intent with synthetic precision.
+            </p>
         </div>
     </section>
     <section class="sect-container ">
-
-
-
         <div v-for="phase in phases" :key="phase.id"
             class="flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2"
             :class="getPhaseStyle(phase.id)">
 
-            <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
+            <!-- <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
                 <div class=" flex flex-row items-center justify-center  gap-2">
                     <div
                         class="font-tech flex flex-col items-center justify-center w-50 h-full font-bold border-2 border-(--pz-chrome) border-l-24 rounded-2xl rounded-tr-none rounded-br-none bg-(--pz-neon)/50 z-10">
@@ -66,10 +60,11 @@ const getPhaseStyle = (index: number) => {
 
             <div class="lg:w-1/2 w-full flex flex-col gap-2">
                 <p class="text-left lg:text-center text-2xl lg:text-4xl">{{ phase.phaseDescription }}</p>
+            </div> -->
+
+            <div class="text-6xl">
+                <span class="cyber">Phase {{ phase.title }}</span>
             </div>
-
-            <!-- <Icon name="material-symbols:arrow-outward-rounded" class="text-(--pz-neon)" /> -->
-
 
         </div>
 

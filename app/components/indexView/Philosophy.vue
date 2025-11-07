@@ -73,11 +73,13 @@ import SectionImg from "@/assets/img/section-bg.jpg"
 <template>
     <!-- manifesto -->
     <section class="sect-container h-screen relative">
-        <div class="z-1">
+        <div class="absolute hidden z-1 lg:block lg:h-300 lg:w-full right-point-angle bg-(--pz-chrome)/10"></div>
+        <div class="absolute hidden z-1 lg:block lg:h-300 lg:w-full left-point-angle bg-(--pz-chrome)/10"></div>
+        <div class="z-10">
             <img :src="SectionImg" alt="ethereal cyberpunk dreamscape"
                 class="absolute inset-0 w-full h-full object-cover z-0 opacity-50" />
         </div>
-        <div class="flex flex-col items-center gap-2 z-10">
+        <div class="flex flex-col items-center gap-2 z-11">
             <h1 class="section-title">Reality isn &apos;t broken.</h1>
             <h1 class="section-title">It&apos;s <span class="text-(--pz-neon)">obsolete.</span></h1>
             <blockquote class="text-3xl leading-relaxed max-w-3xl">
