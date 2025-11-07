@@ -5,6 +5,7 @@
 /* Tailwind + Animations */
 @import "tailwindcss";
 @import "./animations.css";
+@import "./shapes.css";
 
 /* ------------------------------
    Custom Font

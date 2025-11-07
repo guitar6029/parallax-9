@@ -14,10 +14,10 @@ onMounted(() => {
 
         <!-- Overlay Content -->
         <Transition name="slide-in" mode="out-in" appear>
-
+<!-- text-shadow-[1px_1px_0_#0ff,2px_2px_0_#09f,3px_3px_0_#007] -->
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-10">
                 <h1 class="text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold tracking-tight cyber">Parallax-9</h1>
-                <span class="text-2xl md:text-4xl font-light opacity-80 font-tech">
+                <span class="text-2xl md:text-[3rem] font-light opacity-80 font-tech">
                     Reality is overrated. Experience something else.
                 </span>
             </div>
