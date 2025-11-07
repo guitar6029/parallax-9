@@ -49,6 +49,7 @@
   --pz-neon-2: #66eaff; /* cool cyan */
   --pz-purple: #6a48ff; /* subtle violet */
   --pz-chrome: #cfd6e6; /* specular highlight */
+  --pz-yellow: #ffd54f; /* warm neon yellow */
 
   /* Opacities */
   --pz-overlay-60: rgba(0, 0, 0, 0.6);

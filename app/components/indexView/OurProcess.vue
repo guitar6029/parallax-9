@@ -19,14 +19,21 @@ const getPhaseStyle = (index: number) => {
             :class="getPhaseStyle(phase.id)">
 
             <div class="w-10 h-full absolute left-0 bg-(--pz-neon)/10"></div>
+            <div class="w-[.1rem] h-full absolute left-20 bg-(--pz-yellow)"></div>
+        
 
             <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
 
                 <div class="relative w-full border border-(--pz-chrome">
 
                     <!-- main image -->
-
-                    <img :src="phase.image" :alt="phase.title + ' phase'" class="shadow-2xl shadow-white/30">
+                    <div class="relative">
+                        <img :src="phase.image" :alt="phase.title + ' phase'" class="shadow-2xl shadow-white/30 border-2 border-(--pz-yellow)">
+                        <div class="absolute flex flex-col items-center justify-center top-0 right-0 border-2 w-25 h-25 bg-(--pz-neon)/50">
+                            <span>phase</span>
+                            <span class="cyber font-bold text-2xl">{{ phase.title }}</span>
+                        </div>
+                    </div>
 
                     <!-- absolute divs -->
                     <!-- for larger screens -->
@@ -70,7 +77,8 @@ const getPhaseStyle = (index: number) => {
             <div class="flex flex-col items-start gap-2 z-20">
                 <h4 class="text-6xl text-(--pz-purple) cyber">{{ phase.subtitleText }}</h4>
             </div>
-            <div class="lg:w-1/2 w-full flex flex-col gap-2">
+            <div class="lg:w-1/2 w-full flex flex-col gap-2 relative">
+                <div class="hidden lg:block absolute inset-0 bevel bg-(--pz-purple)/20"></div>
                 <p class="text-left lg:text-center text-2xl lg:text-4xl">{{ phase.phaseDescription }}</p>
             </div>
 
