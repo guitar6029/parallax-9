@@ -27,44 +27,67 @@ const getPhaseStyle = (index: number) => {
                 triad of creation. Every stage merges human intent with synthetic precision.
             </p>
         </div>
+
+
     </section>
     <section class="sect-container ">
         <div v-for="phase in phases" :key="phase.id"
             class="flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2"
             :class="getPhaseStyle(phase.id)">
+            <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
 
-            <!-- <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
-                <div class=" flex flex-row items-center justify-center  gap-2">
-                    <div
-                        class="font-tech flex flex-col items-center justify-center w-50 h-full font-bold border-2 border-(--pz-chrome) border-l-24 rounded-2xl rounded-tr-none rounded-br-none bg-(--pz-neon)/50 z-10">
-                        <div class="flex flex-col items-start gap-2">
-                            <span class="uppercase">Phase</span>
-                            <span class="text-8xl">{{
-                                phase.title
-                            }}</span>
+                <div class="relative w-full border border-(--pz-chrome">
+
+                    <!-- main image -->
+
+                    <img :src="phase.image" :alt="phase.title + ' phase'" class="shadow-2xl shadow-white/30">
+
+                    <!-- absolute divs -->
+                    <!-- for larger screens -->
+                    <div class="hidden xl:flex xl:absolute -top-20 -left-20 flex-col items-center">
+
+
+                        <div class="relative inline-block trns hover:skew-x-6 hover:scale-105">
+                            <!-- Layer 3 (deepest shadow) -->
+                            <span class="absolute inset-0 cyber text-[15rem]
+           text-(--pz-neon)/10 z-0
+           translate-x-1.5 translate-y-1.5">
+                                {{ phase.title }}
+                            </span>
+
+                            <!-- Layer 2 (mid-tone) -->
+                            <span class="absolute inset-0 cyber text-[15rem]
+           text-(--pz-neon)/30 z-10
+           translate-x-[3px] translate-y-[3px]">
+                                {{ phase.title }}
+                            </span>
+
+                            <!-- Layer 1 (front highlight) -->
+                            <span class="relative cyber text-[15rem]
+           text-(--pz-neon)
+           z-20 [text-shadow:0_0_8px_#0ff,0_0_16px_#09f,0_0_32px_#007]
+           skew-x-6 -skew-y-6">
+                                {{ phase.title }}
+                            </span>
                         </div>
-
-
                     </div>
-                    <div class=" min-w-[100px] border border-(--pz-chrome">
-                        <img :src="phase.image" :alt="phase.title + ' phase'" class="shadow-2xl shadow-white/30">
+
+                    <!-- for smaller screens -->
+                    <div class="xl:hidden flex flex-col items-start gap-2">
+                        <span class="uppercase">Phase</span>
+                        <span class="text-[5rem] cyber">{{
+                            phase.title
+                            }}</span>
                     </div>
                 </div>
             </div>
-
-
             <div class="flex flex-col items-start gap-2 z-20">
                 <h4 class="text-6xl text-(--pz-purple) cyber">{{ phase.subtitleText }}</h4>
             </div>
-
-
             <div class="lg:w-1/2 w-full flex flex-col gap-2">
                 <p class="text-left lg:text-center text-2xl lg:text-4xl">{{ phase.phaseDescription }}</p>
-            </div> -->
-
-            <div class="text-6xl">
-                <span class="cyber">Phase {{ phase.title }}</span>
             </div>
+
 
         </div>
 
