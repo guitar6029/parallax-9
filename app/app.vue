@@ -8,7 +8,7 @@ onMounted(() => {
 </script>
 
 <template>
-  Loading screen
+  <!-- Loading screen -->
   <div v-if="!ready" class="h-dvh flex items-center justify-center bg-(--pz-bg)">
     <span class="cyber text-6xl tracking-widest">LOADING…</span>
     <NuxtPage />
