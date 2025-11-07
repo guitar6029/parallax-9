@@ -6,23 +6,6 @@
 @import "tailwindcss";
 @import "./animations.css";
 
-/* Utility Classes */
-@layer utilities {
-  .trns {
-    @apply transition ease-in-out duration-300;
-  }
-  .centered-col {
-    @apply flex flex-col items-center justify-center;
-  }
-  .section-title {
-    font-family: "Rajdhani", sans-serif;
-    @apply text-4xl lg:text-8xl font-bold;
-  }
-  .sect-container {
-    @apply bg-(--pz-bg) flex flex-col items-center justify-center text-center gap-10 p-2;
-  }
-}
-
 /* ------------------------------
    Custom Font
 ------------------------------ */
@@ -94,6 +77,26 @@
     ),
     linear-gradient(180deg, #0b0f12 0%, #0b0f12 50%, #141821 100%);
 }
+
+
+
+/* Utility Classes */
+@layer utilities {
+  .trns {
+    @apply transition ease-in-out duration-300;
+  }
+  .centered-col {
+    @apply flex flex-col items-center justify-center;
+  }
+  .section-title {
+    font-family: "Rajdhani", sans-serif;
+    @apply text-4xl lg:text-8xl font-bold;
+  }
+  .sect-container {
+    @apply bg-(--pz-bg) flex flex-col items-center justify-center text-center gap-10 p-2;
+  }
+}
+
 
 /* ------------------------------
    TYPOGRAPHY

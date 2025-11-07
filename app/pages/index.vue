@@ -3,6 +3,7 @@ import Testimonials from "~/components/indexView/Testimonials.vue";
 import NetworkExpands from "~/components/indexView/NetworkExpands.vue";
 import Metrics from "~/components/indexView/Metrics.vue";
 import Philosophy from "~/components/indexView/Philosophy.vue";
+import OurProcess from "~/components/indexView/OurProcess.vue";
 </script>
 
 <template>
@@ -12,5 +13,6 @@ import Philosophy from "~/components/indexView/Philosophy.vue";
         <Testimonials />
         <Metrics />
         <Philosophy />
+        <OurProcess />
     </div>
 </template>
