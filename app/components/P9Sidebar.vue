@@ -56,21 +56,31 @@ onBeforeUnmount(() => {
 <template>
     <Icon v-if="!largeScreen" @click="handleMenu" name="material-symbols:menu" size="4rem"
         class="cursor-pointer trns hover:text-(--pz-neon) absolute top-0 right-1 z-100" />
-    <div v-if="isMenuForSmallerScreenDisplaying && !largeScreen"
+    <Transition
+        enter-active-class="transition-all duration-300 ease-out"
+        enter-from-classs="-translate-y-full opacity-0"
+        enter-to-class="translate-y-0 opacity-100"
+        leave-active-class="transition-all duration-200 ease-in"
+        leave-from-class="translate-y-0 opacity-100"
+        leave-to-class="-translate-y-full opacity-0"
+    >
+
+        <div v-if="isMenuForSmallerScreenDisplaying && !largeScreen"
         class="z-100 absolute top-0 w-full h-full bg-(--pz-bg) flex flex-col items-center justify-center gap-2">
         <h1 class="absolute top-5 left-0 cyber text-3xl border-b text-(--pz-neon)">Parallax-9</h1>
         <Icon @click="isMenuForSmallerScreenDisplaying = false" name="material-symbols:cancel-presentation" size="4rem"
-            class="absolute top-0 right-1 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
+        class="absolute top-0 right-1 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
         <nav class="flex flex-col gap-10">
             <div class="cyber text-4xl" v-for="item in navItems" :key="item.label">
                 <NuxtLink @click="isMenuForSmallerScreenDisplaying = false" :to="item.to"
-                    class="flex items-center gap-2 trns hover:text-(--pz-neon)">
-                    <Icon name="material-symbols:arrow-outward" size="1.5rem" />
-                    <span>{{ item.label }}</span>
-                </NuxtLink>
-            </div>
-        </nav>
-    </div>
+                class="flex items-center gap-2 trns hover:text-(--pz-neon)">
+                <Icon name="material-symbols:arrow-outward" size="1.5rem" />
+                <span>{{ item.label }}</span>
+            </NuxtLink>
+        </div>
+    </nav>
+</div>
+</Transition>  
 
 
     <aside v-if="largeScreen"
