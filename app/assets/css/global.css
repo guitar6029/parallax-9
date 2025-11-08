@@ -90,7 +90,7 @@
   }
   .section-title {
     font-family: "Rajdhani", sans-serif;
-    @apply text-4xl lg:text-8xl xl:text-[15rem] font-bold;
+    @apply text-4xl lg:text-8xl xl:text-[15rem] font-semibold;
   }
   .sect-container {
     @apply flex flex-col items-center justify-center text-center gap-10 p-2;
