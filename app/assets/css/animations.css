@@ -4,7 +4,7 @@
 }
 
 .rail-enter-active {
-  @apply transition transition-transform duration-500 ease-out origin-bottom delay-250;
+  @apply transition-transform duration-500 ease-out origin-bottom delay-250;
 }
 
 .rail-enter-to {
@@ -17,7 +17,7 @@
 }
 
 .rail-leave-active {
-  @apply transition transition-transform duration-400 ease-in origin-bottom;
+  @apply transition-transform duration-400 ease-in origin-bottom;
 }
 
 .rail-leave-to {
@@ -105,5 +105,38 @@
 @media (prefers-reduced-motion: reduce) {
   .moving {
     animation: none;
+  }
+}
+
+
+.movement-square {
+  animation: squareMotion 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes squareMotion {
+  /* start top-left  x,y */
+  0% {
+    transform: translate(0, 0);
+  }
+
+  /* top-right */
+  25% {
+    transform: translate(120vh, 0);
+  }
+
+  /* bottom-right */
+  50% {
+    transform: translate(120vh, 65vh);
+  }
+
+  /* bottom-left */
+  75% {
+    transform: translate(0, 65vh);
+  }
+
+  /* back to top-left */
+  100% {
+    transform: translate(0, 0);
   }
 }

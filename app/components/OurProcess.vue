@@ -15,10 +15,10 @@ const getPhaseStyle = (index: number) => {
     <section class="sect-container">
         <div v-for="phase in phases" :key="phase.id"
             class="relative flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2"
-            :class="getPhaseStyle(phase.id)">
+            >
 
-            <div class="w-10 h-full absolute left-0 bg-(--pz-neon)/10"></div>
-            <div class="w-[.1rem] h-full absolute left-20 bg-(--pz-yellow)"></div>
+            <!-- <div class="w-10 h-full absolute left-0 bg-(--pz-neon)/10"></div>
+            <div class="w-[.1rem] h-full absolute left-20 bg-(--pz-yellow)"></div> -->
 
 
             <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">

@@ -4,7 +4,7 @@ import MetricsSections from './Metrics/MetricsSections.vue';
 
 <template>
     <section class="sect-container mt-20 relative">
-        <h1 class="relative text-left hidden xl:block section-title z-100 top-5 left-10 p-2 bg-(--pz-neon)/50">
+        <h1 class="relative text-left hidden xl:block section-title z-100 top-5 left-10">
             The Network Expands
         </h1>
         <h1 class="section-title block lg:hidden text-(--pz-yellow)">The
