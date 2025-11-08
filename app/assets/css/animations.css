@@ -62,8 +62,48 @@
   transition: transform 0.4s ease;
 }
 
-
 @keyframes neonPulse {
-  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 6px var(--pz-neon)); }
-  50% { opacity: 1; filter: drop-shadow(0 0 12px var(--pz-neon)); }
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: drop-shadow(0 0 6px var(--pz-neon));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px var(--pz-neon));
+  }
+}
+
+.moving {
+  /* infinite up↔down, staggerable */
+  animation: movingUpDown var(--dur, 6s) ease-in-out var(--delay, 0s) infinite
+    alternate;
+  will-change: transform;
+}
+
+/* Keyframes use transform (not top/bottom) */
+@keyframes movingUpDown {
+  /* 0%: start exactly at original position */
+  0%,
+  10% {
+    transform: translateY(0);
+  }
+
+  /* 50%: reach peak height (negative = up) , 120px is the backup value if --distace */
+  50% {
+    transform: translateY(calc(-1 * var(--distance, 120px)));
+  }
+
+  /* 100%: return to start (alternate reverses the path automatically) */
+  90%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .moving {
+    animation: none;
+  }
 }

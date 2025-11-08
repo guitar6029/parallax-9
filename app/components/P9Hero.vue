@@ -9,6 +9,25 @@ onMounted(() => {
 
 <template>
     <div v-if="hasMounted" class="relative w-full h-screen overflow-hidden">
+
+
+        <!-- shape 1 -->
+        <div class="absolute bottom-0 right-15 w-2 h-2 bg-(--pz-yellow) z-4 moving"
+            style="--distance: 50vh; --dur: 4s; --delay: 2s;"></div>
+
+        <!-- shape 2 -->
+        <div class="absolute bottom-10 right-15 w-2 h-2 bg-(--pz-yellow) z-4 moving"
+            style="--distance: 70vh; --dur: 5.5s; --delay: 4s;"></div>
+
+        <!-- shape 3 -->
+        <div class="absolute bottom-20 right-15 w-2 h-2 bg-(--pz-yellow) z-4 moving"
+            style="--distance: 90vh; --dur: 6.5s; --delay: 6s;"></div>
+        
+        <!-- shape 4     -->
+        <div class="absolute bottom-30 right-15 w-2 h-2 bg-(--pz-yellow) z-4 moving"
+            style="--distance: 90vh; --dur: 6.5s; --delay: 8s;"></div>
+
+
         <!-- Background Image -->
         <img :src="HeroImage" alt="Synthetic Android" class="absolute inset-0 w-full h-full object-cover z-0" />
         <!-- Overlay Content -->
