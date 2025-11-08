@@ -32,7 +32,7 @@
             style="--distance: 90vh; --dur: 6.5s; --delay: 8s;"></div>
 
         <!-- content -->
-        <div class="relative z-20 overflow-y-auto max-h-dvh">
+        <div class="relative z-20 overflow-y-auto overflow-x-hidden max-h-dvh">
             <slot />
         </div>
     </div>
