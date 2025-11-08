@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { phases } from "@/assets/data/phase/data"
-import SectionImg from "@/assets/img/section-bg.jpg"
 const getPhaseStyle = (index: number) => {
     // even index → one direction, odd index → reversed
     return index % 2 === 0
