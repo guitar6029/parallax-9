@@ -22,7 +22,7 @@ onMounted(() => {
         <main class="flex-1 min-h-0 overflow-y-auto bg-(--pz-bg)">
           <NuxtPage />
         </main>
-        <P9Footer class="shrink-0" />
+        <!-- <P9Footer class="shrink-0" /> -->
       </div>
 
       <!-- RIGHT: Sidebar (full height) -->
