@@ -10,7 +10,7 @@ onMounted(() => {
 <template>
     <div v-if="hasMounted" class="relative w-full h-screen overflow-hidden">
         <!-- Background Image -->
-        <img :src="HeroImage" alt="Synthetic Android" class="absolute inset-0 w-full h-full object-cover z-0" />
+        <img :src="HeroImage" alt="Synthetic Android" class="absolute inset-0 w-full h-full object-cover z-0 opacity-80" />
 
         <!-- Overlay Content -->
         <Transition name="slide-in" mode="out-in" appear>
