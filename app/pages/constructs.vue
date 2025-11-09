@@ -79,12 +79,35 @@ const maxIndex = computed(() => {
     return CMCExperiences.value.length - 1
 })
 
+const getScaleForTheContainer = computed(() => {
+    const w = currentWindowSize.value
+    if (w <= 786) return 0.55
+    else if (w <= 1200) return 0.65
+    else if (w <= 1440) return 0.87
+    else return 1.0
+})
+
+
+const getSceneOffset = computed(() => {
+    if (currentWindowSize.value <= 786)
+        return { x: -200, y: 40 }
+    else if (currentWindowSize.value <= 1200)
+        return { x: -100, y: 30 }
+    else if (currentWindowSize.value <= 1440)
+        return { x: -50, y: 20 }
+    else
+        return { x: 0, y: 0 }
+})
 
 </script>
 
 <template>
     <section class="sect-container h-screen relative">
-        <div class="absolute bottom-50 left-90 perspective-[150rem]">
+        <!-- absolute bottom-50 left-90 perspective-[150rem] -->
+        <div class="absolute perspective-[150rem]" :style="{
+            transform: `translate(${getSceneOffset.x}px, ${getSceneOffset.y}px) scale(${getScaleForTheContainer})`,
+            transformOrigin: 'bottom left'
+        }">
             <!-- CMC MONITOR -->
             <div
                 class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20">
