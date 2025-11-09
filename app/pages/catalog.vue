@@ -1,60 +1,14 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref, computed } from 'vue';
-
-const items = [
-    {
-        id: 1,
-        name: "CMS-1"
-    },
-    {
-        id: 2,
-        name: "CMS-2"
-    },
-    {
-        id: 3,
-        name: "CMS-3"
-    },
-    {
-        id: 4,
-        name: "CMS-4"
-    },
-    {
-        id: 5,
-        name: "CMS-5"
-    },
-    {
-        id: 6,
-        name: "CMS-6"
-    },
-    {
-        id: 7,
-        name: "CMS-7"
-    },
-    {
-        id: 8,
-        name: "CMS-8"
-    },
-    {
-        id: 9,
-        name: "CMS-9"
-    },
-    {
-        id: 10,
-        name: "CMS-10"
-    },
-    {
-        id: 11,
-        name: "CMS-11"
-    },
-]
+import CMSItems from '@/assets/data/Parallax9Data.json'
+import type { CMC } from '~/types/CMC';
 
 
-const lengthOfFirtst10 = items.length * 270
-
+const CMSExperiences = ref<CMC[]>(CMSItems)
+const activeCMS = ref<CMC | null>(null)
 const activeIndex = ref(0)
-const maxIndex = ref(items.length - 1)
+const maxIndex = ref(CMSItems.length - 1)
 
-const offSet = 0
 
 
 function handleKey(e: KeyboardEvent) {
@@ -69,7 +23,9 @@ function handleKey(e: KeyboardEvent) {
         } else {
             console.log('going back by 1')
             activeIndex.value = activeIndex.value - 1
-            //also scroll up
+            // set the active CMS
+            activeCMS.value = CMSExperiences.value[activeIndex.value - 1] as CMC
+
         }
     } else if (e.key === 'ArrowRight') {
         if (activeIndex.value === maxIndex.value) {
@@ -87,6 +43,7 @@ function handleKey(e: KeyboardEvent) {
 }
 
 onMounted(() => {
+    console.log("CMS items : ", CMSItems);
     window.addEventListener("keydown", handleKey)
 })
 
@@ -114,12 +71,21 @@ useHead({
     <section class="sect-container h-screen relative">
 
 
-        <div class="absolute bottom-50 left-120 [perspective:800px]">
+        <!-- THE CMS MONITOR -->
+        <div class="absolute shadow-neutral-700 shadow-2xl bottom-150 left-120 w-200 h-200 bg-(--pz-bg-2) -skew-x-12 -skew-y-12 flex flex-col items-center justify-center">
+                <!-- <span class="font-tech text-4xl tracking-[.5em]">Please LOAD CMS</span> -->
+                 <div class="flex flex-col gap-2 items-center justify-center">
+                    <h1>{{ activeCMS?.title }}</h1>
+                 </div>
+        </div>
+
+    
+        <div class="absolute bottom-50 left-120 [perspective:100rem]">
 
             <div
                 class="relative gap-2 w-[720px] h-[260px] [transform-style: preserve-3d] [transform-origin: 0%_100%] [transform:rotateX(55deg)_rotateZ(-20deg)]">
 
-                <div v-for="(item, index) in items" :key="item.id">
+                <div v-for="(item, index) in CMSExperiences" :key="item.id">
                     <div :class="['absolute transition-transform duration-400 ease-out top-0 left-0 flex items-center justify-center  w-64 h-40 rounded-2xl border-2', { 'border-(--pz-neon)': activeIndex === item.id - 1 }]"
                         :style="`transform:
             translateX(${((index - activeIndex) * 300)}px)
@@ -128,7 +94,7 @@ useHead({
             rotateX(32deg) rotateY(6deg)`">
 
                         <div class="absolute top-1/2 -translate-y-1/2">
-                            <span class="text-4xl">{{ item.name }}</span>
+                            <span class="text-4xl">{{ item.title }}</span>
                         </div>
 
                         <!-- index + 1 since 0 based -->

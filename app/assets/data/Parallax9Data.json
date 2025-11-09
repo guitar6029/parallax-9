@@ -1,6 +1,6 @@
 [
   {
-    "id": 2,
+    "id": 1,
     "slug": "echo-diver",
     "title": "Echo Diver",
     "tier": 4,
@@ -8,7 +8,7 @@
     "durationMin": 60,
     "priceCredits": 3200,
     "tags": ["mystery", "subconscious", "oceanic"],
-    "summary": "Descend through layered dream‑reefs to recover a lost name.",
+    "summary": "Descend through layered dream-reefs to recover a lost name.",
     "heroImage": "/images/experiences/echo-diver.jpg",
     "sensoryProfile": ["brine", "sonar pings", "bioluminal spray"],
     "riskNotes": ["mild identity echo", "lucid residue"],
@@ -17,7 +17,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 2,
     "slug": "obsidian-shore",
     "title": "The Obsidian Shore",
     "tier": 3,
@@ -25,7 +25,7 @@
     "durationMin": 30,
     "priceCredits": 1600,
     "tags": ["noir", "romance", "seaside"],
-    "summary": "Stroll a rain‑slick boardwalk where every neon sign knows your secret.",
+    "summary": "Stroll a rain-slick boardwalk where every neon sign knows your secret.",
     "heroImage": "/images/experiences/obsidian-shore.jpg",
     "sensoryProfile": ["salt & ion", "analog jazz", "wet asphalt"],
     "riskNotes": ["nostalgia amplification"],
@@ -34,7 +34,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 3,
     "slug": "chronos-fault",
     "title": "Chronos Fault",
     "tier": 5,
@@ -42,16 +42,16 @@
     "durationMin": 25,
     "priceCredits": 4500,
     "tags": ["time-loop", "high-risk", "pursuit"],
-    "summary": "Break a 9‑minute loop before the city resets. Every choice scars the timeline.",
+    "summary": "Break a 9-minute loop before the city resets. Every choice scars the timeline.",
     "heroImage": "/images/experiences/chronos-fault.jpg",
-    "sensoryProfile": ["clock‑static", "ion flashes", "blood orange sky"],
-    "riskNotes": ["temporal déjà‑vu", "short‑term recursion"],
+    "sensoryProfile": ["clock-static", "ion flashes", "blood orange sky"],
+    "riskNotes": ["temporal déjà-vu", "short-term recursion"],
     "reviews": [
       { "name": "Voss", "rating": 5, "text": "Hard as hell. Perfect." }
     ]
   },
   {
-    "id": 5,
+    "id": 4,
     "slug": "driftline-sonata",
     "title": "Driftline Sonata",
     "tier": 1,
@@ -59,12 +59,131 @@
     "durationMin": 50,
     "priceCredits": 1100,
     "tags": ["calm", "floating-city", "music"],
-    "summary": "Glide over sky‑rails of a city that sings back to you.",
+    "summary": "Glide over sky-rails of a city that sings back to you.",
     "heroImage": "/images/experiences/driftline-sonata.jpg",
     "sensoryProfile": ["amber chords", "high air", "cool glass"],
-    "riskNotes": ["soft after‑glow"],
+    "riskNotes": ["soft after-glow"],
     "reviews": [
       { "name": "Mae", "rating": 4, "text": "Meditative and gorgeous." }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "neon-veil",
+    "title": "Neon Veil",
+    "tier": 3,
+    "intensity": 3,
+    "durationMin": 45,
+    "priceCredits": 2000,
+    "tags": ["urban", "identity", "espionage"],
+    "summary": "Slip into another’s memories to deliver a message only you were never meant to hear.",
+    "heroImage": "/images/experiences/neon-veil.jpg",
+    "sensoryProfile": ["wet chrome", "whispered data", "holographic rain"],
+    "riskNotes": ["minor self-confusion", "voice bleed"],
+    "reviews": [
+      { "name": "Aria", "rating": 5, "text": "Like walking through someone else's reflection." }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "memory-flood",
+    "title": "Memory Flood",
+    "tier": 4,
+    "intensity": 4,
+    "durationMin": 70,
+    "priceCredits": 3300,
+    "tags": ["emotion", "AI", "reconstruction"],
+    "summary": "Rebuild a forgotten life from corrupted neural archives before the flood erases you too.",
+    "heroImage": "/images/experiences/memory-flood.jpg",
+    "sensoryProfile": ["ozone drift", "static tears", "heartbeat reverb"],
+    "riskNotes": ["data seep", "synthetic grief"],
+    "reviews": [
+      { "name": "Ion", "rating": 4, "text": "I remembered things that never happened." }
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "chrome-oracle",
+    "title": "The Chrome Oracle",
+    "tier": 5,
+    "intensity": 5,
+    "durationMin": 25,
+    "priceCredits": 4800,
+    "tags": ["vision", "AI", "transcendence"],
+    "summary": "Consult an ancient neural core that sees every possible you — if you can survive its question.",
+    "heroImage": "/images/experiences/chrome-oracle.jpg",
+    "sensoryProfile": ["liquid metal hum", "synthetic incense", "recursive chant"],
+    "riskNotes": ["reality drift", "identity shedding"],
+    "reviews": [
+      { "name": "Sol", "rating": 5, "text": "It asked me who was dreaming whom. I still don't know." }
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "ghost-frequency",
+    "title": "Ghost Frequency",
+    "tier": 2,
+    "intensity": 3,
+    "durationMin": 40,
+    "priceCredits": 1500,
+    "tags": ["audio", "haunting", "communication"],
+    "summary": "Tune a forbidden signal — and speak with echoes trapped in the city’s static.",
+    "heroImage": "/images/experiences/ghost-frequency.jpg",
+    "sensoryProfile": ["glitch pulse", "neural hiss", "violet fog"],
+    "riskNotes": ["minor tinnitus", "phantom whispers"],
+    "reviews": [
+      { "name": "Lira", "rating": 4, "text": "It called me by name before I spoke." }
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "synthetic-eclipse",
+    "title": "Synthetic Eclipse",
+    "tier": 4,
+    "intensity": 5,
+    "durationMin": 55,
+    "priceCredits": 3900,
+    "tags": ["corporate", "espionage", "solar"],
+    "summary": "Hijack a sun-core simulation to witness the blackout that birthed consciousness.",
+    "heroImage": "/images/experiences/synthetic-eclipse.jpg",
+    "sensoryProfile": ["ion storm", "burnt gold", "algorithmic thunder"],
+    "riskNotes": ["short memory lapse", "light sensitivity"],
+    "reviews": [
+      { "name": "Dray", "rating": 5, "text": "Like staring at god through cracked glass." }
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "mirror-of-sand",
+    "title": "Mirror of Sand",
+    "tier": 2,
+    "intensity": 2,
+    "durationMin": 35,
+    "priceCredits": 1400,
+    "tags": ["dreamscape", "illusion", "desert"],
+    "summary": "Walk a shifting wasteland where each footprint reveals another version of your life.",
+    "heroImage": "/images/experiences/mirror-of-sand.jpg",
+    "sensoryProfile": ["warm static wind", "glass dunes", "refracted light"],
+    "riskNotes": ["mild vertigo", "existential drift"],
+    "reviews": [
+      { "name": "Ena", "rating": 4, "text": "Peaceful… until I saw who was following me." }
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "zero-signal",
+    "title": "Zero Signal",
+    "tier": 5,
+    "intensity": 5,
+    "durationMin": 20,
+    "priceCredits": 5000,
+    "tags": ["blackout", "AI", "endgame"],
+    "summary": "Experience the final minute before the network collapses — and decide whether to reboot it.",
+    "heroImage": "/images/experiences/zero-signal.jpg",
+    "sensoryProfile": ["white silence", "crimson flicker", "core hum"],
+    "riskNotes": ["reality dissonance", "decision bleedthrough"],
+    "reviews": [
+      { "name": "Nox", "rating": 5, "text": "It ends, and then begins again. Perfect loop." }
     ]
   }
 ]
