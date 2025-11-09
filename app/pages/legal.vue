@@ -23,7 +23,7 @@ useHead({
         </p>
 
         <div
-            class="max-w-4xl text-left mt-12 space-y-10 text-(--pz-chrome)/80 font-tech text-lg md:text-xl leading-relaxed">
+            class="max-w-4xl sm:text-center md:text-left mt-12 space-y-10 text-(--pz-chrome)/80 font-tech text-lg md:text-xl leading-relaxed">
             <div>
                 <h2 class="text-(--pz-purple) text-2xl mb-2 font-semibold">01. Intellectual Continuum</h2>
                 <p>
