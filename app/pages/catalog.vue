@@ -19,11 +19,12 @@ function handleKey(e: KeyboardEvent) {
         if (activeIndex.value === 0) {
             //do nothing
             console.log("no more, at the first one")
+            activeCMS.value = CMSExperiences.value[0] as CMC
             return
         } else {
             console.log('going back by 1')
             activeIndex.value = activeIndex.value - 1
-            // set the active CMS
+            // set the active CMC
             activeCMS.value = CMSExperiences.value[activeIndex.value - 1] as CMC
 
         }
@@ -35,7 +36,8 @@ function handleKey(e: KeyboardEvent) {
         } else {
             console.log("going forward by 1")
             activeIndex.value = activeIndex.value + 1
-            // also scroll down
+            // set the CMC
+            activeCMS.value = CMSExperiences.value[activeIndex.value] as CMC
         }
     } else if (e.key === ' ' || e.key === 'Space') {
         console.log('Spacebar pressed');
@@ -43,7 +45,7 @@ function handleKey(e: KeyboardEvent) {
 }
 
 onMounted(() => {
-    console.log("CMS items : ", CMSItems);
+    console.log("CMC items : ", CMSItems);
     window.addEventListener("keydown", handleKey)
 })
 
@@ -65,17 +67,22 @@ useHead({
 })
 
 
+const cmc = computed(() => {
+    return activeCMS.value
+})
+
 </script>
 
 <template>
     <section class="sect-container h-screen relative">
 
 
-        <!-- THE CMS MONITOR -->
+        <!-- THE CMC MONITOR -->
         <div class="absolute shadow-neutral-700 shadow-2xl bottom-150 left-120 w-200 h-200 bg-(--pz-bg-2) -skew-x-12 -skew-y-12 flex flex-col items-center justify-center">
-                <!-- <span class="font-tech text-4xl tracking-[.5em]">Please LOAD CMS</span> -->
+                <!-- <span class="font-tech text-4xl tracking-[.5em]">Please LOAD CMC</span> -->
                  <div class="flex flex-col gap-2 items-center justify-center">
-                    <h1>{{ activeCMS?.title }}</h1>
+                    <h1>{{ cmc?.title }}</h1>
+                    <span>{{ cmc?.intensity }}</span>
                  </div>
         </div>
 
