@@ -8,13 +8,13 @@ const isMenuForSmallerScreenDisplaying = ref(false)
 const currentWindowSize = ref(0)
 const hasMounted = ref(false)
 
-function updateWindiwSuze() {
+function updateWindowSize() {
     if (typeof window !== 'undefined') {
         currentWindowSize.value = window.innerWidth
     }
 }
 
-const handleResizeThrottled = throttle(updateWindiwSuze, 150)
+const handleResizeThrottled = throttle(updateWindowSize, 150)
 const largeScreen = computed(() => {
     return currentWindowSize.value >= 1024
 })
@@ -43,7 +43,7 @@ onMounted(() => {
     //hasMounted check
     hasMounted.value = true
 
-    updateWindiwSuze() //set initial size
+    updateWindowSize() //set initial size
     window.addEventListener("resize", handleResizeThrottled)
     //add listener for the escape key
     window.addEventListener("keydown", handleKeydown)
