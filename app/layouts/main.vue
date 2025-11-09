@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VerticalWaveAccent from '~/ui/accents/VerticalWaveAccent.vue';
 import VerticalRuler from "~/ui/accents/VerticalRuler.vue";
+import VerticalSquares from '~/ui/accents/VerticalSquares.vue';
 </script>
 
 <template>
@@ -20,8 +21,8 @@ import VerticalRuler from "~/ui/accents/VerticalRuler.vue";
 
 
         <VerticalRuler />
-
         <VerticalWaveAccent />
+        <VerticalSquares />
 
 
 

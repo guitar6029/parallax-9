@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 import VerticalWaveAccent from '@/ui/accents/VerticalWaveAccent.vue'
 import VerticalRuler from '~/ui/accents/VerticalRuler.vue';
 import HeroImage from '@/assets/img/hero4.png';
+import VerticalSquares from '~/ui/accents/VerticalSquares.vue';
 const hasMounted = ref(false);
 onMounted(() => {
     hasMounted.value = true;
@@ -42,11 +43,8 @@ onMounted(() => {
         <div class="absolute bottom-30 right-15 w-2 h-2 bg-(--pz-crome) z-4 moving"
             style="--distance: 90vh; --dur: 6.5s; --delay: 8s;"></div>
 
-
         <VerticalWaveAccent :number-of-lines=30 />
-
-       
-
+        <VerticalSquares/>
 
         <!-- Background Image -->
         <img :src="HeroImage" alt="Synthetic Android" class="absolute inset-0 w-full h-full object-cover z-0" />
