@@ -7,11 +7,10 @@ import { throttle } from '#imports';
 const STEP_X = 450;
 const STEP_Y = 10;
 const STEP_Z = 60;
-
-
 const currentWindowSize = ref(0)
 
 //definePageMeta({ layout: 'main' })
+
 useHead({
     title: 'Catalog — Parallax-9',
     meta: [
@@ -85,31 +84,35 @@ const maxIndex = computed(() => {
 
 <template>
     <section class="sect-container h-screen relative">
-        <div class="absolute bottom-50 left-90 perspective-[150rem] pointer-events-none">
+        <div class="absolute bottom-50 left-90 perspective-[150rem]">
+            <!-- CMC MONITOR -->
             <div
-                class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center">
+                class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20">
                 <div class="flex flex-col gap-2 items-center justify-center">
                     <h1 class="cyber text-5xl">{{ activeCMC?.title }}</h1>
                     <span>Intensity {{ activeCMC?.intensity }}</span>
                 </div>
             </div>
 
-
-
-
+            <!-- CARDS + PLATFORM RAIL -->
             <div tabindex="0"
                 class="relative w-[720px] h-[260px] [transform-style: preserve-3d] [transform-origin: 0%_100%] transform-[rotateX(55deg)_rotateZ(-20deg)]">
 
+                <div class="bg-(--pz-bg-2)/50 h-150 absolute z-1" :style="{
+                    width: `${((CMCExperiences.length - 1) * STEP_X) + STEP_X}px`,
+                    transform: `translateX(${-activeIndex * STEP_X}px)`
+                }">
+
+                </div>
+                <!-- CMC CARDS -->
                 <div v-for="(item, index) in CMCExperiences" :key="item.id">
-                    <div :class="['cmc-card absolute transition-transform duration-300 ease-out top-0 left-0 flex items-center justify-center border-4 w-100 h-150 rounded-2xl  will-change-transform backface-hidden', { 'border-(--pz-yellow)': activeIndex === index }]"
+                    <div :class="['cmc-card absolute z-10 transition-transform duration-300 ease-out top-0 left-0 flex items-center justify-center border-4 w-100 h-150 rounded-2xl bg-linear-to-r from-(--pz-bg) to-(--pz-bg-2) will-change-transform backface-hidden', { 'border-(--pz-yellow)': activeIndex === index }]"
                         :style="`transform:
             translateX(${((index - activeIndex) * STEP_X)}px)
             translateY(${-(index - activeIndex) * STEP_Y}px)
             translateZ(${(index - activeIndex) * STEP_Z}px)
             rotateX(32deg) rotateY(6deg)`">
-
                         <div class="absolute w-5 h-5 bg-(--pz-yellow) top-2 left-2">
-
                         </div>
 
                         <div class="absolute top-1/2 -translate-y-1/2">
