@@ -133,8 +133,8 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
             <!-- CMC MONITOR -->
             <div
                 class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20 shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
+                <img :src="CMCImage" alt="CMC" class="absolute w-420 h-200 inset-0 z-1 opacity-60">
                 <div class="flex flex-col gap-2 items-center justify-center">
-                    <img :src="CMCImage" alt="CMC" class="absolute inset-0 z-1 opacity-60">
                     <div class="z-10">
                         <h1 class="cyber text-6xl">{{ activeCMC?.title }}</h1>
                         <span class="text-4xl font-tech">Intensity {{ activeCMC?.intensity }}</span>
