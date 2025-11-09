@@ -22,7 +22,6 @@ useHead({
     ],
 })
 
-
 function updateWindowSize() {
     if (typeof window !== 'undefined') {
         currentWindowSize.value = window.innerWidth
@@ -99,10 +98,30 @@ const getSceneOffset = computed(() => {
         return { x: 0, y: 0 }
 })
 
+const isCompactView = computed(() => currentWindowSize.value <= 640)
+
+
 </script>
 
 <template>
-    <section class="sect-container h-screen relative">
+    <section v-if="isCompactView" class="sect-container h-screen relative">
+        <div class="flex flex-col items-center justify-center">
+            <div class="sticky top-0 w-full bg-(--pz-bg-2)/70 p-4 text-center">
+                <h1 class="cyber text-3xl">{{ activeCMC?.title }}</h1>
+                <span class="text-sm">Intensity {{ activeCMC?.intensity }}</span>
+            </div>
+
+            <div class="flex overflow-x-auto gap-4 snap-x snap-mandatory px-4 py-10">
+                <div v-for="(item, index) in CMCExperiences" :key="item.id"
+                    class="min-w-[80vw] snap-center border-2 rounded-xl p-8 text-center"
+                    :class="{ 'border-(--pz-yellow)': activeIndex === index }" @click="activeIndex = index">
+                    <h2 class="text-2xl">{{ item.title }}</h2>
+                    <p class="text-sm opacity-70">Tap to Load CMC</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section v-else class="sect-container h-screen relative">
         <!-- absolute bottom-50 left-90 perspective-[150rem] -->
         <div class="absolute perspective-[150rem]" :style="{
             transform: `translate(${getSceneOffset.x}px, ${getSceneOffset.y}px) scale(${getScaleForTheContainer})`,
@@ -110,7 +129,7 @@ const getSceneOffset = computed(() => {
         }">
             <!-- CMC MONITOR -->
             <div
-                class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20">
+                class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20 shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
                 <div class="flex flex-col gap-2 items-center justify-center">
                     <h1 class="cyber text-5xl">{{ activeCMC?.title }}</h1>
                     <span>Intensity {{ activeCMC?.intensity }}</span>
