@@ -10,8 +10,8 @@ export const navItems: NavigationMenuItem[] = [
     label: "Approach",
   },
   {
-    to: "/catalog",
-    label: "Catalog",
+    to: "/constructs",
+    label: "Constructs",
   },
   {
     to: "/the-vision",
