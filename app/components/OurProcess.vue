@@ -14,12 +14,7 @@ const getPhaseStyle = (index: number) => {
 <template>
     <section class="sect-container">
         <div v-for="phase in phases" :key="phase.id"
-            class="relative flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2"
-            >
-
-            <!-- <div class="w-10 h-full absolute left-0 bg-(--pz-neon)/10"></div>
-            <div class="w-[.1rem] h-full absolute left-20 bg-(--pz-yellow)"></div> -->
-
+            class="relative flex flex-col items-center justify-center gap-10 h-fit lg:min-h-300 p-2">
 
             <div class="flex flex-col xl:flex-row items-center xl:items-stretch gap-2">
 
@@ -71,7 +66,7 @@ const getPhaseStyle = (index: number) => {
                         <span class="uppercase">Phase</span>
                         <span class="text-[5rem] cyber">{{
                             phase.title
-                            }}</span>
+                        }}</span>
                     </div>
                 </div>
             </div>
