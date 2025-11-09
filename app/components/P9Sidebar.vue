@@ -6,6 +6,7 @@ import { throttle } from "@/utils/throttle"
 
 const isMenuForSmallerScreenDisplaying = ref(false)
 const currentWindowSize = ref(0)
+const hasMounted = ref(false)
 
 function updateWindiwSuze() {
     if (typeof window !== 'undefined') {
@@ -38,6 +39,10 @@ function handleMenu() {
 
 
 onMounted(() => {
+
+    //hasMounted check
+    hasMounted.value = true
+
     updateWindiwSuze() //set initial size
     window.addEventListener("resize", handleResizeThrottled)
     //add listener for the escape key
@@ -54,7 +59,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <Icon v-if="!largeScreen" @click="handleMenu" name="material-symbols:menu" size="4rem"
+    <Icon v-if="!largeScreen && hasMounted" @click="handleMenu" name="material-symbols:menu" size="4rem"
         class="cursor-pointer trns hover:text-(--pz-neon) absolute top-0 right-1 z-100" />
     <Transition enter-active-class="transition-all duration-300 ease-out"
         enter-from-classs="-translate-y-full opacity-0" enter-to-class="translate-y-0 opacity-100"
