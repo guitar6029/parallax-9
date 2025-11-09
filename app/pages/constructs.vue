@@ -40,10 +40,11 @@ function handleKey(e: KeyboardEvent) {
         if (activeIndex.value < maxIndex.value) {
             return activeIndex.value = activeIndex.value + 1
         }
-    } else if (e.key === ' ' || e.key === 'Space') {
-        console.log('Spacebar pressed');
-        e.preventDefault()
     }
+    // else if (e.key === ' ' || e.key === 'Space') {
+    //     console.log('Spacebar pressed');
+    //     e.preventDefault()
+    // }
 }
 
 
@@ -51,6 +52,8 @@ const handleKeyThrottled = throttle(handleKey, 150)
 const handleResizeThrottled = throttle(updateWindowSize, 150)
 const CMCExperiences = ref<CMC[]>(CMC_EXPERIENCES)
 const activeIndex = ref(0)
+const playingCMC = ref(false)
+const playCooldown = ref(false)
 
 onMounted(() => {
     //get window size
@@ -69,6 +72,13 @@ onBeforeUnmount(() => {
     handleResizeThrottled.cancel()
 
 })
+
+function togglePlaySelectedCMC() {
+    if (playCooldown.value) return
+    playCooldown.value = true
+    playingCMC.value = !playingCMC.value
+    setTimeout(() => (playCooldown.value = false), 150)
+}
 
 
 // returns the object of the active index from CMC_EXPERIENCES
@@ -189,6 +199,16 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
                         </div>
                     </div>
                 </div>
+
+                <button @click="togglePlaySelectedCMC()"
+                    :class="['hover:bg-(--pz-neon)/20 hover:text-(--pz-yellow) trns absolute w-105 rounded-t-2xl border-l-2  border-b-8 h-25 bg-(--pz-bg-2) -bottom-120 -left-10 z-500 flex items-center flex-row justify-center  font-tech  text-4xl cursor-pointer', { 'text-(--pz-yellow)': playingCMC }, { 'pointer-events-none opacity-80': playCooldown }]">
+                    <span>{{
+                        playingCMC ? 'Playing' : "Play" }}</span>
+                    <Icon
+                        :name="`material-symbols:${playingCMC ? 'pause-circle-outline-rounded' : 'play-circle-outline-rounded'}`"
+                        size="3rem" />
+
+                </button>
 
 
                 <!-- ACCENTS -->
