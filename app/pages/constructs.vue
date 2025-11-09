@@ -113,6 +113,28 @@ const getSceneOffset = computed(() => {
 const isCompactView = computed(() => currentWindowSize.value <= 640)
 
 
+function cmcPlayer(action: 'previous' | 'next') {
+    if (action === 'previous') {
+        // Go back one, but don’t go below 0
+        if (activeIndex.value > 0) {
+            activeIndex.value -= 1
+        }
+    } else if (action === 'next') {
+        // Go forward one, but don’t exceed maxIndex
+        if (activeIndex.value < maxIndex.value) {
+            activeIndex.value += 1
+        }
+    }
+}
+
+
+const canGoToPreviousCMC = computed(() => {
+    return activeIndex.value > 0
+})
+const canGoToNextCMC = computed(() => {
+    return activeIndex.value < maxIndex.value
+})
+
 </script>
 
 <template>
@@ -207,6 +229,19 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
                     <Icon
                         :name="`material-symbols:${playingCMC ? 'pause-circle-outline-rounded' : 'play-circle-outline-rounded'}`"
                         size="3rem" />
+
+                </button>
+
+                <button :disabled="!canGoToPreviousCMC" @click="cmcPlayer('previous')"
+                    :class="['hover:bg-(--pz-neon)/20 hover:text-(--pz-yellow) trns absolute w-25 rounded-t-2xl border-l-2  border-b-8 h-25 bg-(--pz-bg-2) -bottom-120 -left-40 z-500 flex items-center flex-row justify-center  font-tech  text-4xl cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed disabled:pointer-events-none', { 'text-(--pz-yellow)': playingCMC }, { 'pointer-events-none opacity-80': playCooldown }]">
+
+                    <Icon name="material-symbols:arrow-left-alt" size="3rem" />
+
+                </button>
+                <button :disabled="!canGoToNextCMC" @click="cmcPlayer('next')"
+                    :class="['hover:bg-(--pz-neon)/20 hover:text-(--pz-yellow) trns absolute w-25 rounded-t-2xl border-l-2  border-b-8 h-25 bg-(--pz-bg-2) -bottom-120 left-100 z-500 flex items-center flex-row justify-center  font-tech  text-4xl cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed disabled:pointer-events-none', { 'text-(--pz-yellow)': playingCMC }, { 'pointer-events-none opacity-80': playCooldown }]">
+
+                    <Icon name="material-symbols:arrow-right-alt" size="3rem" />
 
                 </button>
 
