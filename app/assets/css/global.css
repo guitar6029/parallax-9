@@ -117,6 +117,7 @@ body {
   font-family: "Exo 2", sans-serif;
   color: var(--pz-text);
   background: var(--pz-bg);
+  min-width: 360px;
 }
 
 /* ------------------------------
