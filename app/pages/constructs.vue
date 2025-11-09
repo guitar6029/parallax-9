@@ -3,7 +3,9 @@ import { onMounted, onBeforeUnmount, ref, computed } from 'vue';
 import CMC_EXPERIENCES from '@/assets/data/Parallax9Data.json'
 import type { CMC } from '~/types/CMC';
 import { throttle } from '#imports';
+import CMCImage from '@/assets/img/section-bg.jpg';
 
+const keyFragments = 20
 const STEP_X = 450;
 const STEP_Y = 10;
 const STEP_Z = 60;
@@ -89,9 +91,9 @@ const getScaleForTheContainer = computed(() => {
 
 const getSceneOffset = computed(() => {
     if (currentWindowSize.value <= 786)
-        return { x: -200, y: 40 }
+        return { x: 250, y: 40 }
     else if (currentWindowSize.value <= 1200)
-        return { x: -100, y: 30 }
+        return { x: 100, y: 30 }
     else if (currentWindowSize.value <= 1440)
         return { x: -50, y: 20 }
     else
@@ -122,6 +124,7 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
         </div>
     </section>
     <section v-else class="sect-container h-screen relative">
+
         <!-- absolute bottom-50 left-90 perspective-[150rem] -->
         <div class="absolute perspective-[150rem]" :style="{
             transform: `translate(${getSceneOffset.x}px, ${getSceneOffset.y}px) scale(${getScaleForTheContainer})`,
@@ -131,8 +134,12 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
             <div
                 class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20 shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
                 <div class="flex flex-col gap-2 items-center justify-center">
-                    <h1 class="cyber text-5xl">{{ activeCMC?.title }}</h1>
-                    <span>Intensity {{ activeCMC?.intensity }}</span>
+                    <img :src="CMCImage" alt="CMC" class="absolute inset-0 z-1 opacity-60">
+                    <div class="z-10">
+                        <h1 class="cyber text-6xl">{{ activeCMC?.title }}</h1>
+                        <span class="text-4xl font-tech">Intensity {{ activeCMC?.intensity }}</span>
+
+                    </div>
                 </div>
             </div>
 
@@ -143,22 +150,32 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
                 <div class="bg-(--pz-bg-2)/50 h-150 absolute z-1" :style="{
                     width: `${((CMCExperiences.length - 1) * STEP_X) + STEP_X}px`,
                     transform: `translateX(${-activeIndex * STEP_X}px)`
+
                 }">
 
                 </div>
                 <!-- CMC CARDS -->
                 <div v-for="(item, index) in CMCExperiences" :key="item.id">
-                    <div :class="['cmc-card absolute z-10 transition-transform duration-300 ease-out top-0 left-0 flex items-center justify-center border-4 w-100 h-150 rounded-2xl bg-linear-to-r from-(--pz-bg) to-(--pz-bg-2) will-change-transform backface-hidden', { 'border-(--pz-yellow)': activeIndex === index }]"
-                        :style="`transform:
+                    <div :class="['cmc-card absolute z-10 transition-transform duration-300 ease-out top-0 left-0 flex items-center trns hover:top-2 justify-center rounded-tl-md border border-l-[.2rem] border-b-[1rem] border-b-neutral-300 max-w-50  w-50 h-150 rounded-2xl bg-linear-to-r from-(--pz-bg) to-(--pz-bg-2) will-change-transform backface-hidden', {
+                        'border-(--pz-chrome)/50': activeIndex === index,
+                        // 'blur-[5px]': activeIndex !== index
+                    }
+                    ]" :style="`transform:
             translateX(${((index - activeIndex) * STEP_X)}px)
             translateY(${-(index - activeIndex) * STEP_Y}px)
             translateZ(${(index - activeIndex) * STEP_Z}px)
             rotateX(32deg) rotateY(6deg)`">
-                        <div class="absolute w-5 h-5 bg-(--pz-yellow) top-2 left-2">
+
+                        <div v-for="index in keyFragments" :key="index" class="absolute top-2 bg-(--pz-chrome)"
+                            :style="{ left: `${index * 8}px`, height: `${getHeightForCMCKey(index)}`, width: `${getWidthForCMCKey(index)}` }">
                         </div>
 
-                        <div class="absolute top-1/2 -translate-y-1/2">
-                            <span class="text-4xl">{{ item.title }}</span>
+
+                        <div class="absolute flex flex-col gap-2 items-center justify-center">
+                            <span :title="item.title" class="text-2xl border-2  p-2 rounded-full bg-(--pz-chrome)/10">{{ item.id
+                                }}</span>
+                            <span class="text-2xl w-[200px] truncate  ">{{ item.title }}</span>
+                            <span class="italic text-[1rem]">{{ item.durationMin }} Min.</span>
                         </div>
 
                         <!-- index + 1 since 0 based -->
@@ -166,10 +183,18 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
                         <div class="relative -bottom-40 flex flex-col items-center gap-2" v-if="activeIndex === index">
                             <!-- <span>this one</span> -->
                             <!-- <Icon name="material-symbols:arrow-outward" size="3rem" class="-rotate-40" /> -->
-                            <span class="text-4xl">Load CMC</span>
+                            <Icon style="color: var(--pz-yellow);"
+                                name="material-symbols:airline-seat-recline-extra-sharp" size="8rem" />
                         </div>
                     </div>
                 </div>
+
+
+                <!-- ACCENTS -->
+                <!-- <div class="absolute bottom-10 left-10 h-25 w-25  z-300 bg-amber-200">
+                 </div>
+                 <div class="absolute -bottom-10 left-40 h-25 w-25  z-300 bg-amber-200">
+                 </div> -->
 
             </div>
 
