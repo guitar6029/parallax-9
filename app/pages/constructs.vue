@@ -41,10 +41,10 @@ function handleKey(e: KeyboardEvent) {
             return activeIndex.value = activeIndex.value + 1
         }
     }
-    // else if (e.key === ' ' || e.key === 'Space') {
-    //     console.log('Spacebar pressed');
-    //     e.preventDefault()
-    // }
+    else if (e.code === 'Space') {
+        e.preventDefault()
+        togglePlaySelectedCMC()
+    }
 }
 
 
@@ -184,7 +184,7 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
                         <div class="absolute flex flex-col gap-2 items-center justify-center">
                             <span :title="item.title" class="text-2xl border-2  p-2 rounded-full bg-(--pz-chrome)/10">{{
                                 item.id
-                            }}</span>
+                                }}</span>
                             <span class="text-2xl w-[200px] truncate  ">{{ item.title }}</span>
                             <span class="italic text-[1rem]">{{ item.durationMin }} Min.</span>
                         </div>
