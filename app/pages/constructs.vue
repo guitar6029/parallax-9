@@ -132,7 +132,7 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
         }">
             <!-- CMC MONITOR -->
             <div
-                class="absolute bottom-75 left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20 shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
+                class="absolute bottom-75 border-l-4 border-(--pz-neon) left-1/2 translate-x-[-50%] w-420 h-200 bg-(--pz-bg-2) -skew-x-1 -skew-y-12 flex flex-col items-center justify-center z-20 shadow-[0_8px_20px_rgba(0,0,0,0.5)]">
                 <img :src="CMCImage" alt="CMC" class="absolute w-420 h-200 inset-0 z-1 opacity-60">
                 <div class="flex flex-col gap-2 items-center justify-center">
                     <div class="z-10">
@@ -147,16 +147,16 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
             <div tabindex="0"
                 class="relative w-[720px] h-[260px] [transform-style: preserve-3d] [transform-origin: 0%_100%] transform-[rotateX(55deg)_rotateZ(-20deg)]">
 
-                <div class="bg-(--pz-bg-2)/50 h-150 absolute z-1" :style="{
+                <div class="bg-(--pz-bg-2)/50 h-150 border-b-4 absolute z-1" :style="{
                     width: `${((CMCExperiences.length - 1) * STEP_X) + STEP_X}px`,
-                    transform: `translateX(${-activeIndex * STEP_X}px)`
+                    transform: `translateX(${-activeIndex * STEP_X - 24}px)`
 
                 }">
 
                 </div>
                 <!-- CMC CARDS -->
                 <div v-for="(item, index) in CMCExperiences" :key="item.id">
-                    <div :class="['cmc-card absolute z-10 transition-transform duration-300 ease-out top-0 left-0 flex items-center trns hover:top-2 justify-center rounded-tl-md border border-l-[.2rem] border-b-[1rem] border-b-neutral-300 max-w-50  w-50 h-150 rounded-2xl bg-linear-to-r from-(--pz-bg) to-(--pz-bg-2) will-change-transform backface-hidden', {
+                    <div :class="['cmc-card absolute z-10 transition-transform duration-300 ease-out top-0 left-0 flex items-center trns hover:top-2 justify-center rounded-tl-md border border-l-[.2rem] border-b-[1rem] border-b-neutral-300 max-w-55 w-55 h-150 rounded-2xl bg-linear-to-r from-(--pz-bg) to-(--pz-bg-2) will-change-transform backface-hidden', {
                         'border-(--pz-chrome)/50': activeIndex === index,
                         // 'blur-[5px]': activeIndex !== index
                     }
@@ -172,8 +172,9 @@ const isCompactView = computed(() => currentWindowSize.value <= 640)
 
 
                         <div class="absolute flex flex-col gap-2 items-center justify-center">
-                            <span :title="item.title" class="text-2xl border-2  p-2 rounded-full bg-(--pz-chrome)/10">{{ item.id
-                                }}</span>
+                            <span :title="item.title" class="text-2xl border-2  p-2 rounded-full bg-(--pz-chrome)/10">{{
+                                item.id
+                            }}</span>
                             <span class="text-2xl w-[200px] truncate  ">{{ item.title }}</span>
                             <span class="italic text-[1rem]">{{ item.durationMin }} Min.</span>
                         </div>
