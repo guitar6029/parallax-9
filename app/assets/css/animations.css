@@ -17,7 +17,7 @@
 }
 
 .rail-leave-active {
-  @apply transition-transform duration-400 ease-in origin-bottom;
+  @apply transition-transform duration-300 ease-in origin-bottom;
 }
 
 .rail-leave-to {
