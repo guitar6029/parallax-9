@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
+import VerticalWaveAccent from '@/ui/accents/VerticalWaveAccent.vue'
+import VerticalRuler from '~/ui/accents/VerticalRuler.vue';
 import HeroImage from '@/assets/img/hero4.png';
 const hasMounted = ref(false);
 onMounted(() => {
@@ -10,12 +12,6 @@ onMounted(() => {
 <template>
     <!-- bg-linear-to-b from-(--pz-bg-2)/20 to-(--pz-bg) -->
     <div v-if="hasMounted" class="relative w-full h-screen overflow-hidden bg-(--pz-bg-2) ">
-
-
-
-
-
-
         <div class="absolute bottom-10 rounded-full right-10 w-500 h-600 border-2 z-1 opacity-20"></div>
         <div class="absolute bottom-30 rounded-full right-20 w-500 h-600 border-2 z-1 opacity-20"></div>
         <div class="absolute bottom-50 rounded-full right-30 w-500 h-600 border-2 z-1 opacity-20"></div>
@@ -23,13 +19,12 @@ onMounted(() => {
         <div class="absolute bottom-0 rounded-full left-220 w-200 h-600 border-2 z-1 opacity-20"></div>
         <div class="absolute bottom-0 rounded-full left-220 w-100 h-600 border-2 z-1 opacity-20"></div>
         <div class="absolute bottom-0 rounded-full left-440 w-200 h-600 border-2 z-1 opacity-20"></div>
-        <div class="absolute top-0 left-0 w-50 h-50">
-            <span class="cyber text-8xl opacity-30">P9</span>
-        </div>
 
         <div class="absolute bottom-0 left-0 w-50 h-50 ">
             <span class="cyber text-xl opacity-20">X1</span>
         </div>
+
+        <VerticalRuler />
 
         <!-- shape 1 -->
         <div class="absolute bottom-0 right-15 w-2 h-2 bg-(--pz-chrome) z-4 moving"
@@ -46,6 +41,11 @@ onMounted(() => {
         <!-- shape 4     -->
         <div class="absolute bottom-30 right-15 w-2 h-2 bg-(--pz-crome) z-4 moving"
             style="--distance: 90vh; --dur: 6.5s; --delay: 8s;"></div>
+
+
+        <VerticalWaveAccent :number-of-lines=30 />
+
+       
 
 
         <!-- Background Image -->
