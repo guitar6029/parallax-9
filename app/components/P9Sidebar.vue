@@ -3,6 +3,7 @@ import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import P9Logo from "@/assets/img/brain-logo.png"
 import { navItems } from "@/assets/data/nav/NavLinks"
 import { throttle } from "@/utils/throttle"
+import VerticalSquares from '~/ui/accents/VerticalSquares.vue'
 
 const isMenuForSmallerScreenDisplaying = ref(false)
 const currentWindowSize = ref(0)
@@ -69,6 +70,7 @@ onBeforeUnmount(() => {
         <div v-if="isMenuForSmallerScreenDisplaying && !largeScreen"
             class="z-100 absolute top-0 w-full h-full bg-(--pz-bg) flex flex-col items-center justify-center gap-2">
             <h1 class="absolute top-5 left-0 cyber text-3xl border-b text-(--pz-neon)">Parallax-9</h1>
+            <VerticalSquares/>
             <Icon @click="isMenuForSmallerScreenDisplaying = false" name="material-symbols:cancel-presentation"
                 size="4rem" class="absolute top-0 right-1 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
             <nav class="flex flex-col gap-10">
