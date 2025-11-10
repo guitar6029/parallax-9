@@ -4,6 +4,7 @@ import CMC_EXPERIENCES from '@/assets/data/Parallax9Data.json'
 import type { CMC } from '~/types/CMC';
 import { throttle } from '#imports';
 import CMCImage from '@/assets/img/section-bg.jpg';
+import { VIEW_STATES, type ViewState } from '@/types/ConstructsView';
 
 const keyFragments = 20
 const STEP_X = 450;
@@ -134,10 +135,16 @@ const canGoToNextCMC = computed(() => {
     return activeIndex.value < maxIndex.value
 })
 
+const currentView = computed<ViewState>(() => {
+    if (isCompactView.value) return VIEW_STATES.COMPACT
+    return playingCMC.value ? VIEW_STATES.PLAYING : VIEW_STATES.SELECTION
+})
+
+
 </script>
 
 <template>
-    <section v-if="isCompactView" class="sect-container h-screen relative">
+    <section v-if="currentView === VIEW_STATES.COMPACT" class="sect-container h-screen relative">
         <div class="flex flex-col items-center justify-center">
             <div class="sticky top-0 w-full bg-(--pz-bg-2)/70 p-4 text-center">
                 <h1 class="cyber text-3xl">{{ activeCMC?.title }}</h1>
@@ -154,7 +161,7 @@ const canGoToNextCMC = computed(() => {
             </div>
         </div>
     </section>
-    <section v-else class="sect-container h-screen relative">
+    <section v-else-if="currentView === VIEW_STATES.SELECTION" class="sect-container h-screen relative">
         <div class="absolute perspective-[150rem]" :style="{
             transform: `translate(${getSceneOffset.x}px, ${getSceneOffset.y}px) scale(${getScaleForTheContainer})`,
             transformOrigin: 'bottom left'
@@ -253,6 +260,11 @@ const canGoToNextCMC = computed(() => {
 
         </div>
     </section>
+
+    <section v-else-if="currentView === VIEW_STATES.PLAYING" class="sect-container h-screen relative">
+        <h1>playing view</h1>
+    </section>
+
 
 </template>
 
