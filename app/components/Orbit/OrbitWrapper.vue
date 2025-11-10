@@ -6,8 +6,8 @@ const mainContainer = {
 }
 
 const orbiter = {
-    width: 35,
-    height: 35,
+    width: 50,
+    height: 50,
     borderWidth: 1.5
 }
 

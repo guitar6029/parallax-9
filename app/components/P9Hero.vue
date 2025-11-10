@@ -5,6 +5,7 @@ import VerticalRuler from '~/ui/accents/VerticalRuler.vue';
 import HeroImage from '@/assets/img/hero4.png';
 import VerticalSquares from '~/ui/accents/VerticalSquares.vue';
 import VerticalSquaresWave from '~/ui/accents/VerticalSquaresWave.vue';
+import OrbitWrapper from '@/components/Orbit/OrbitWrapper.vue'
 const hasMounted = ref(false);
 onMounted(() => {
     hasMounted.value = true;

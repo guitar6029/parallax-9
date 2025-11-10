@@ -7,7 +7,7 @@ const mainElement = ref<HTMLDivElement | null>(null)
 const smallCircleRef = ref<HTMLDivElement | null>(null)
 
 const dimension = ref({
-    width: 0, height: 0,
+    width: 100, height: 100,
     borderWidth: 1,
     gap: 4,
 })
@@ -96,11 +96,12 @@ const orbitVars = computed(() => {
     } as Record<string, string>
 })
 
+const isReady = computed(() => dimension.value.width > 0 && dimension.value.height > 0)
+
 </script>
 
 <template>
-    <div v-if="dimension.width && dimension.height" ref="mainElement"
-        :class="[mainContainer.positionX, mainContainer.positionY]"
+    <div v-if="isReady" ref="mainElement" :class="[mainContainer.positionX, mainContainer.positionY]"
         :style="{ borderWidth: `${dimension.borderWidth}px` }"
         class="absolute w-100 h-100 rounded-full border-(--pz-chrome)/20">
         <div ref="smallCircleRef" class="absolute rounded-full border-(--pz-chrome)/20 orbiting will-change-transform"
