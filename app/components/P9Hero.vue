@@ -9,6 +9,7 @@ const hasMounted = ref(false);
 onMounted(() => {
     hasMounted.value = true;
 });
+
 </script>
 
 <template>
@@ -45,8 +46,9 @@ onMounted(() => {
             style="--distance: 90vh; --dur: 6.5s; --delay: 8s;"></div>
 
         <VerticalWaveAccent :number-of-lines=10 />
-        <VerticalSquaresWave />
-        <VerticalSquares/>
+        <VerticalSquaresWave :number-of-items=8 />
+        <OrbitWrapper />
+        <VerticalSquares />
 
         <!-- Background Image -->
         <img :src="HeroImage" alt="Synthetic Android" class="absolute inset-0 w-full h-full object-cover z-0" />
