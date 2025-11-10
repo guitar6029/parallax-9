@@ -99,15 +99,17 @@ const orbitVars = computed(() => {
 </script>
 
 <template>
-    <div ref="mainElement" :class="[mainContainer.positionX, mainContainer.positionY]"
+    <div v-if="dimension.width && dimension.height" ref="mainElement"
+        :class="[mainContainer.positionX, mainContainer.positionY]"
         :style="{ borderWidth: `${dimension.borderWidth}px` }"
         class="absolute w-100 h-100 rounded-full border-(--pz-chrome)/20">
-        <div ref="smallCircleRef" class="absolute rounded-full border-(--pz-chrome)/20 orbiting" :style="{
-            ...orbitVars,
-            width: `${props.orbiter.width}px`,
-            height: `${props.orbiter.height}px`,
-            borderWidth: `${props.orbiter.borderWidth}px`
-        }">
+        <div ref="smallCircleRef" class="absolute rounded-full border-(--pz-chrome)/20 orbiting will-change-transform"
+            :style="{
+                ...orbitVars,
+                width: `${props.orbiter.width}px`,
+                height: `${props.orbiter.height}px`,
+                borderWidth: `${props.orbiter.borderWidth}px`,
+            }">
         </div>
     </div>
 
