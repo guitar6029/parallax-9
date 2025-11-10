@@ -5,6 +5,7 @@ import type { CMC } from '~/types/CMC';
 import { throttle } from '#imports';
 import CMCImage from '@/assets/img/section-bg.jpg';
 import { VIEW_STATES, type ViewState } from '@/types/ConstructsView';
+import Shape from '~/ui/Shape.vue';
 
 const keyFragments = 20
 const STEP_X = 450;
@@ -138,6 +139,8 @@ const canGoToNextCMC = computed(() => {
 const currentView = computed<ViewState>(() => {
     if (isCompactView.value) return VIEW_STATES.COMPACT
     return playingCMC.value ? VIEW_STATES.PLAYING : VIEW_STATES.SELECTION
+    
+    //return VIEW_STATES.PLAYING
 })
 
 
@@ -210,7 +213,7 @@ const currentView = computed<ViewState>(() => {
                         <div class="absolute flex flex-col gap-2 items-center justify-center">
                             <span :title="item.title" class="text-2xl border-2  p-2 rounded-full bg-(--pz-chrome)/10">{{
                                 item.id
-                                }}</span>
+                            }}</span>
                             <span class="text-2xl w-[200px] truncate  ">{{ item.title }}</span>
                             <span class="italic text-[1rem]">{{ item.durationMin }} Min.</span>
                         </div>
@@ -263,9 +266,8 @@ const currentView = computed<ViewState>(() => {
 
     <section v-else-if="currentView === VIEW_STATES.PLAYING" class="sect-container h-screen relative">
         <h1>playing view</h1>
+        <Shape />        
     </section>
 
 
 </template>
-
-<style scoped></style>
