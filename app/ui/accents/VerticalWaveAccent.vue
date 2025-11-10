@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
     widthIncrement?: number,
     positionItem?: PositionItem
 }>(), {
-    numberOfLines: 20,
+    numberOfLines: 10,
     widthIncrement: 5,
     positionItem: () => ({
         horizontalPos: 'left-1',
@@ -38,7 +38,7 @@ const lineWidths = computed(() => {
         positionItem.verticalPos,
         positionItem.horizontalPos
     ]">
-        <div class="w-[0.05rem] h-full bg-(--pz-text) flex flex-col gap-1">
+        <div class=" h-full flex flex-col gap-1">
             <div v-for="(width, i) in lineWidths" :key="i" class="h-[.05rem] bg-(--pz-text) animate-lines"
                 :style="{ width, animationDelay: `${i * 0.1}s` }" />
         </div>
