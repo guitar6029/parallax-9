@@ -127,7 +127,6 @@ function cmcPlayer(action: 'previous' | 'next') {
     }
 }
 
-
 const canGoToPreviousCMC = computed(() => {
     return activeIndex.value > 0
 })
@@ -156,8 +155,6 @@ const canGoToNextCMC = computed(() => {
         </div>
     </section>
     <section v-else class="sect-container h-screen relative">
-
-        <!-- absolute bottom-50 left-90 perspective-[150rem] -->
         <div class="absolute perspective-[150rem]" :style="{
             transform: `translate(${getSceneOffset.x}px, ${getSceneOffset.y}px) scale(${getScaleForTheContainer})`,
             transformOrigin: 'bottom left'
