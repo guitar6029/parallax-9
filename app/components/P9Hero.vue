@@ -28,7 +28,7 @@ onMounted(() => {
             <span class="cyber text-xl opacity-20">X1</span>
         </div>
 
-        <VerticalRuler />
+        <VerticalRuler text-size="text-[.5rem]"/>
 
         <!-- shape 1 -->
         <div class="absolute bottom-0 right-15 w-2 h-2 bg-(--pz-chrome) z-4 moving"

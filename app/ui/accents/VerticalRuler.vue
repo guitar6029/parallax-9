@@ -1,11 +1,12 @@
 <script setup lang="ts">
 
-
-const props = withDefaults(defineProps<{
+withDefaults(defineProps<{
     numLength?: number
+    textSize?: string
 
 }>(), {
-    numLength: 10
+    numLength: 10,
+    textSize: 'text-md'
 
 })
 
@@ -15,7 +16,7 @@ const getCharacter = (i: number) => {
 </script>
 
 <template>
-    <div class="absolute font-tech text-md top-0 right-0 w-fit h-fit flex flex-col items-center justify-center gap-2">
-        <span v-for="i in numLength">{{ getCharacter(i) }}</span>
+    <div class="absolute font-tech top-0 right-0 w-fit h-fit flex flex-col items-center justify-center gap-2">
+        <span v-for="i in numLength" :class="[textSize]">{{ getCharacter(i) }}</span>
     </div>
 </template>
