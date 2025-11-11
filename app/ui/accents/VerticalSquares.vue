@@ -1,5 +1,18 @@
+<script setup lang="ts">
+
+withDefaults(defineProps<{
+    verticalPosition?: string,
+    horizontalPosition?: string
+    zIndex?: string
+}>(), {
+    verticalPosition: 'bottom-50',
+    horizontalPosition: 'left-50',
+    zIndex: 'z-100'
+})
+
+</script>
 <template>
-    <div class="absolute flex flex-col gap-2 bottom-50 left-50">
+    <div :class="['absolute flex flex-col gap-2', verticalPosition, horizontalPosition, zIndex]">
         <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>

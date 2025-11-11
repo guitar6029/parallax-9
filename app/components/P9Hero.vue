@@ -49,7 +49,8 @@ onMounted(() => {
         <VerticalWaveAccent :number-of-lines=10 />
         <VerticalSquaresWave :number-of-items=8 />
         <OrbitWrapper />
-        <VerticalSquares />
+        <VerticalSquares :horizontal-position="'left-150'" vertical-position="top-100" />
+        <VerticalSquares :horizontal-position="'left-170'" vertical-position="top-90" />
 
         <!-- Background Image -->
         <img :src="HeroImage" alt="Synthetic Android" class="absolute inset-0 w-full h-full object-cover z-0" />

@@ -72,7 +72,12 @@ onBeforeUnmount(() => {
         <div v-if="isMenuForSmallerScreenDisplaying && !largeScreen"
             class="z-100 absolute top-0 w-full h-full bg-(--pz-bg) flex flex-col items-center justify-center gap-2">
             <h1 class="absolute top-5 left-5 cyber text-3xl text-(--pz-neon)">Parallax-9</h1>
-            <VerticalSquares />
+
+            <VerticalSquares horizontal-position="right-10" vertical-position="top-50" />
+            <VerticalSquares horizontal-position="left-0" vertical-position="-translate-y-1/2" />
+            <VerticalSquares horizontal-position="left-10" vertical-position="bottom-10" />
+
+
             <Icon @click="isMenuForSmallerScreenDisplaying = false" name="material-symbols:cancel-presentation"
                 size="4rem" class="absolute top-1 right-5 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
             <nav class="flex flex-col gap-10">
