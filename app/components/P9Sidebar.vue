@@ -5,6 +5,7 @@ import { throttle } from "@/utils/throttle"
 import P9Logo from "@/assets/img/brain-logo.png"
 import PanelLink from '~/ui/Panels/PanelLink.vue'
 import VerticalSquares from '~/ui/accents/VerticalSquares.vue'
+import Panel1 from "~/ui/Panels/Panel-1.vue"
 
 const isMenuForSmallerScreenDisplaying = ref(false)
 const currentWindowSize = ref(0)
@@ -70,16 +71,23 @@ onBeforeUnmount(() => {
 
         <div v-if="isMenuForSmallerScreenDisplaying && !largeScreen"
             class="z-100 absolute top-0 w-full h-full bg-(--pz-bg) flex flex-col items-center justify-center gap-2">
-            <h1 class="absolute top-5 left-0 cyber text-3xl border-b text-(--pz-neon)">Parallax-9</h1>
+            <h1 class="absolute top-5 left-5 cyber text-3xl text-(--pz-neon)">Parallax-9</h1>
             <VerticalSquares />
             <Icon @click="isMenuForSmallerScreenDisplaying = false" name="material-symbols:cancel-presentation"
-                size="4rem" class="absolute top-0 right-1 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
+                size="4rem" class="absolute top-1 right-5 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
             <nav class="flex flex-col gap-10">
-                <div class="cyber text-4xl" v-for="item in navItems" :key="item.label">
+                <div class="cyber" v-for="item in navItems" :key="item.label">
                     <NuxtLink @click="isMenuForSmallerScreenDisplaying = false" :to="item.to"
-                        class="flex items-center gap-2 trns hover:text-(--pz-neon)">
-                        <Icon name="material-symbols:arrow-outward" size="1.5rem" />
-                        <span>{{ item.label }}</span>
+                        class="group inline-flex items-center justify-center trns hover:text-(--pz-neon) relative cursor-pointer p-12">
+                        <div class="absolute inset-0 z-1">
+                            <Panel1 width="w-full h-full" />
+                        </div>
+                        <div
+                            class="flex items-center hover:text-(--pz-neon) text-center relative z-10 pointer-events-none">
+                            <Icon name="material-symbols:arrow-outward" size="1.5rem" />
+                            <span class=" text-4xl">{{ item.label }}</span>
+
+                        </div>
                     </NuxtLink>
                 </div>
             </nav>
