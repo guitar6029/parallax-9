@@ -5,7 +5,7 @@ import type { CMC } from '~/types/CMC';
 import { throttle } from '#imports';
 import CMCImage from '@/assets/img/section-bg.jpg';
 import { VIEW_STATES, type ViewState } from '@/types/ConstructsView';
-import Shape from '~/ui/Shape.vue';
+import PlayingCMCView from '~/components/CMC/PlayingCMCView.vue';
 
 const keyFragments = 20
 const STEP_X = 450;
@@ -53,7 +53,7 @@ function handleKey(e: KeyboardEvent) {
 const handleKeyThrottled = throttle(handleKey, 150)
 const handleResizeThrottled = throttle(updateWindowSize, 150)
 const CMCExperiences = ref<CMC[]>(CMC_EXPERIENCES)
-const activeIndex = ref(0)
+const activeIndex = ref<number>(0)
 const playingCMC = ref(false)
 const playCooldown = ref(false)
 
@@ -82,11 +82,12 @@ function togglePlaySelectedCMC() {
     setTimeout(() => (playCooldown.value = false), 150)
 }
 
-
-// returns the object of the active index from CMC_EXPERIENCES
-const activeCMC = computed(() => {
-    return CMCExperiences.value[activeIndex.value]
-})
+const activeCMC = computed<CMC | null>(() => {
+  const list = CMCExperiences.value;
+  const idx = activeIndex.value;
+  if (idx == null) return null;          // nothing selected yet
+  return list[idx] ?? null;               // guard out-of-range just in case
+});
 
 const maxIndex = computed(() => {
     return CMCExperiences.value.length - 1
@@ -139,7 +140,7 @@ const canGoToNextCMC = computed(() => {
 const currentView = computed<ViewState>(() => {
     if (isCompactView.value) return VIEW_STATES.COMPACT
     return playingCMC.value ? VIEW_STATES.PLAYING : VIEW_STATES.SELECTION
-    
+
     //return VIEW_STATES.PLAYING
 })
 
@@ -213,7 +214,7 @@ const currentView = computed<ViewState>(() => {
                         <div class="absolute flex flex-col gap-2 items-center justify-center">
                             <span :title="item.title" class="text-2xl border-2  p-2 rounded-full bg-(--pz-chrome)/10">{{
                                 item.id
-                            }}</span>
+                                }}</span>
                             <span class="text-2xl w-[200px] truncate  ">{{ item.title }}</span>
                             <span class="italic text-[1rem]">{{ item.durationMin }} Min.</span>
                         </div>
@@ -247,26 +248,14 @@ const currentView = computed<ViewState>(() => {
                 </button>
                 <button :disabled="!canGoToNextCMC" @click="cmcPlayer('next')"
                     :class="['hover:bg-(--pz-neon)/20 hover:text-(--pz-yellow) trns absolute w-25 rounded-t-2xl border-l-2  border-b-8 h-25 bg-(--pz-bg-2) -bottom-120 left-100 z-500 flex items-center flex-row justify-center  font-tech  text-4xl cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed disabled:pointer-events-none', { 'text-(--pz-yellow)': playingCMC }, { 'pointer-events-none opacity-80': playCooldown }]">
-
                     <Icon name="material-symbols:arrow-right-alt" size="3rem" />
-
                 </button>
-
-
-                <!-- ACCENTS -->
-                <!-- <div class="absolute bottom-10 left-10 h-25 w-25  z-300 bg-amber-200">
-                 </div>
-                 <div class="absolute -bottom-10 left-40 h-25 w-25  z-300 bg-amber-200">
-                 </div> -->
-
             </div>
-
         </div>
     </section>
 
     <section v-else-if="currentView === VIEW_STATES.PLAYING" class="sect-container h-screen relative">
-        <h1>playing view</h1>
-        <Shape />        
+        <PlayingCMCView :cmc="activeCMC" @cancel="playingCMC = false" />
     </section>
 
 
