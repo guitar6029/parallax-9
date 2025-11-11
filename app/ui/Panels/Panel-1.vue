@@ -1,13 +1,13 @@
 <script setup lang="ts">
 withDefaults(
-    defineProps < {
+    defineProps<{
         width?: string
-    height?: string
-    strokeOuter?: string
-    strokeInner?: string
-    fillOuter?: string
-    fillInner?: string
-    } > (),
+        height?: string
+        strokeOuter?: string
+        strokeInner?: string
+        fillOuter?: string
+        fillInner?: string
+    }>(),
     {
         width: "w-200",
         height: "h-full",
@@ -29,6 +29,6 @@ withDefaults(
         <!-- Outer path -->
         <path
             d="M2.33673 36.4461C1.14173 34.7572 0.5 32.7391 0.5 30.6702V10.5C0.5 4.91398 5.07624 0.411086 10.6616 0.501334L297.36 5.13382C301.395 5.19902 304.996 7.68356 306.489 11.4331L334.045 80.6378C336.66 87.2043 331.823 94.3371 324.755 94.3371H48.4719C45.2266 94.3371 42.1831 92.7623 40.3086 90.113L2.33673 36.4461Z"
-            :stroke="strokeOuter" :fill="'none'" />
+            :stroke="strokeOuter" :fill="fillOuter" />
     </svg>
 </template>
