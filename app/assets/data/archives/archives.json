@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "code": "NX-001",
+    "title": "Project LUCID",
+    "tag": "Dreamstate Prototype"
+  },
+  {
+    "id": 2,
+    "code": "NX-002",
+    "title": "Eclipse Protocol",
+    "tag": "Consciousness Split Test"
+  },
+  {
+    "id": 3,
+    "code": "NX-003",
+    "title": "Specter Engine",
+    "tag": "Synthetic Memory Loop"
+  },
+  {
+    "id": 4,
+    "code": "NX-004",
+    "title": "Nova Lattice",
+    "tag": "Quantum Thought Container"
+  },
+  {
+    "id": 5,
+    "code": "NX-005",
+    "title": "Oblivion Run",
+    "tag": "Personality Decay Study"
+  },
+  {
+    "id": 6,
+    "code": "NX-006",
+    "title": "Echo Frame",
+    "tag": "Neural Ghost Simulation"
+  },
+  {
+    "id": 7,
+    "code": "NX-007",
+    "title": "Cognitive Prism",
+    "tag": "Multi-Self Projection"
+  },
+  {
+    "id": 8,
+    "code": "NX-008",
+    "title": "Seraph Code",
+    "tag": "Uplifted AI Prototype"
+  },
+  {
+    "id": 9,
+    "code": "NX-009",
+    "title": "Vessel IX",
+    "tag": "Human-AI Convergence"
+  },
+  {
+    "id": 10,
+    "code": "NX-010",
+    "title": "Astral Relay",
+    "tag": "Cross-Realm Transmission"
+  },
+  {
+    "id": 11,
+    "code": "NX-011",
+    "title": "Liminal Field",
+    "tag": "Boundary Dissolution Map"
+  },
+  {
+    "id": 12,
+    "code": "NX-012",
+    "title": "Project HALCYON",
+    "tag": "Synthetic Calm Injection"
+  },
+  {
+    "id": 13,
+    "code": "NX-013",
+    "title": "Paradox Node",
+    "tag": "Recursive Cognition Loop"
+  },
+  {
+    "id": 14,
+    "code": "NX-014",
+    "title": "NeuraVerse",
+    "tag": "Shared Dream Network"
+  },
+  {
+    "id": 15,
+    "code": "NX-015",
+    "title": "Void Bloom",
+    "tag": "Emotion-Vacuum Response"
+  },
+  {
+    "id": 16,
+    "code": "NX-016",
+    "title": "Helix Gate",
+    "tag": "Temporal Memory Anchor"
+  },
+  {
+    "id": 17,
+    "code": "NX-017",
+    "title": "Orchid Signal",
+    "tag": "Sensory Rebirth Sequence"
+  },
+  {
+    "id": 18,
+    "code": "NX-018",
+    "title": "Mirror Core",
+    "tag": "Ego Duplication Protocol"
+  },
+  {
+    "id": 19,
+    "code": "NX-019",
+    "title": "Black Sun",
+    "tag": "Forbidden Neural Construct"
+  },
+  {
+    "id": 20,
+    "code": "NX-020",
+    "title": "Celestial Bloom",
+    "tag": "Luminous Mind Event"
+  },
+  {
+    "id": 21,
+    "code": "NX-021",
+    "title": "Spectral Archive",
+    "tag": "Residual Conscious Fragments"
+  },
+  {
+    "id": 22,
+    "code": "NX-022",
+    "title": "Fracture Point",
+    "tag": "Divergent Identity Test"
+  },
+  {
+    "id": 23,
+    "code": "NX-023",
+    "title": "Aether Run",
+    "tag": "Cognitive Uplink Stream"
+  },
+  {
+    "id": 24,
+    "code": "NX-024",
+    "title": "Horizon Key",
+    "tag": "Dream-Reality Interface"
+  },
+  {
+    "id": 25,
+    "code": "NX-025",
+    "title": "Spectra Seed",
+    "tag": "Psy-Genetic Bloom"
+  },
+  {
+    "id": 26,
+    "code": "NX-026",
+    "title": "NOMAD Array",
+    "tag": "Distributed Mind Cluster"
+  },
+  {
+    "id": 27,
+    "code": "NX-027",
+    "title": "Cradle Zero",
+    "tag": "Origin Memory Recovery"
+  },
+  {
+    "id": 28,
+    "code": "NX-028",
+    "title": "Velum Process",
+    "tag": "Subconscious Shroud Layer"
+  },
+  {
+    "id": 29,
+    "code": "NX-029",
+    "title": "Eidolon Frame",
+    "tag": "Ancestral Pattern Simulation"
+  },
+  {
+    "id": 30,
+    "code": "NX-030",
+    "title": "Nexus Pulse",
+    "tag": "Final Construct Synchronization"
+  }
+]

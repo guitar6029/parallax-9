@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import OurProcess from '~/components/OurProcess.vue'
+import OurProcess from '~/components/NeuralArchives.vue'
 
 definePageMeta({ layout: 'main' })
 

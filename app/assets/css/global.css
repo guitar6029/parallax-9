@@ -50,6 +50,7 @@
   --pz-purple: #6a48ff; /* subtle violet */
   --pz-chrome: #cfd6e6; /* specular highlight */
   --pz-yellow: #ffd54f; /* warm neon yellow */
+  --pz-yellow-glow: color-mix(in srgb, var(--pz-yellow) 80%, transparent);
 
   /* Opacities */
   --pz-overlay-60: rgba(0, 0, 0, 0.6);
