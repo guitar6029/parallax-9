@@ -39,7 +39,7 @@ onMounted(() => {
   <section class="h-screen sect-container relative">
     <div class="flex items-center justify-center gap-6 perspective-distant">
       <div
-        class="relative translate-y-[-10vh] translate-x-[-20vw] transform-3d w-[min(42vw,540px)] h-[min(28vw,360px)]">
+        class="relative translate-y-[-5vh] translate-x-[-10vw] transform-3d w-[min(42vw,540px)] h-[min(28vw,360px)]">
         <div v-for="(archive, index) in data" :key="index"
           class="absolute trns hover:rotate-[-5deg] group hover:-translate-y-10 hover:-translate-x-10 inset-0 w-full backface-hidden  p-40 lg:p-100"
           :style="`transform: translateX(${(index - activeIndex) * STEP_X}px)
