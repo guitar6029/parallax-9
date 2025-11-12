@@ -15,7 +15,7 @@ defineProps<{
         <div class="absolute inset-0 z-1">
             <Panel1 width="w-full h-full" />
         </div>
-        <span class="group-hover:scale-105 trns cyber text-xl text-center relative z-10 pointer-events-none">{{ label ??
+        <span class="group-hover:scale-105 trns cyber text-xl text-center tracking-[5px] relative z-10 pointer-events-none">{{ label ??
             ' ' }}</span>
     </NuxtLink>
 </template>

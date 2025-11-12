@@ -7,7 +7,7 @@ export const navItems: NavigationMenuItem[] = [
   },
   {
     to: "/neural-archives",
-    label: "Neural Archives",
+    label: "Archives",
   },
   {
     to: "/constructs",
