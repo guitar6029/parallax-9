@@ -72,11 +72,10 @@ onBeforeUnmount(() => {
             `">
           <div class="absolute inset-0 z-1">
             <CardCircuits
-              :class="['stroke-4 w-full fill-(--pz-bg-2) trns group-hover:fill-(--pz-neon)', cardColors[index], { 'fill-blue-700': activeIndex === index }]" />
+              :class="['stroke-4 w-full fill-(--pz-bg-2) trns group-hover:fill-(--pz-neon)', cardColors[index], { 'fill-(--pz-yellow-glow)': activeIndex === index }]" />
           </div>
-          <div class="absolute top-0 translate-x-1/2 z-10 flex flex-col gap-2">
-            <span class="cyber text-xl">{{ archive.title }}</span>
-
+          <div class="absolute -top-10 translate-x-1/2 z-10 flex flex-col gap-2">
+            <span class="font-tech text-xl p-2 bg-(--pz-yellow-glow) text-black rounded-xl">{{ archive.title }}</span>
           </div>
         </div>
       </div>
