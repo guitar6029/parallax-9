@@ -10,6 +10,10 @@ export const navItems: NavigationMenuItem[] = [
     label: "Archives",
   },
   {
+    to: "/the-fragment-protocol",
+    label: "Fragment Protocol",
+  },
+  {
     to: "/constructs",
     label: "Constructs",
   },
