@@ -3,6 +3,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 import { throttle } from "@/utils/throttle";
 import NeuralArchiveCard from "~/ui/Card/NueralAchiveCard.vue";
 import data from "@/assets/data/archives/archives.json";
+import { getRandomColor } from "@/utils/Colors";
 import {
   STEP_X,
   STEP_Y,
@@ -11,40 +12,44 @@ import {
   translateX,
   translateY,
 } from "@/utils/NeuralAchiveUtils";
+
 const activeIndex = ref(0);
-const CARDS = data.length;
-const cardColors = ref<string[]>([]);
+const archives = Array.isArray(data) ? data : [];
+const CARDS = archives.length;
+
+// start with safe default colors (SSR + first render)
+const cardColors = ref<string[]>(Array(CARDS).fill("stroke-(--pz-neon)"));
+
+const selectedArchive = ref<number | null>(null);
+const isReady = ref(false);
+
+function handleNeuralCardSelection(index: number) {
+  selectedArchive.value = index;
+  console.log("Selected Archive Index:", selectedArchive.value);
+}
 
 function handleWheel(e: WheelEvent) {
   if (Math.sign(e.deltaY) === -1) {
-    // wheel up
     activeIndex.value =
-      activeIndex.value === data.length - 1
+      activeIndex.value === CARDS - 1
         ? activeIndex.value
         : activeIndex.value + 1;
   } else {
-    //wheel down
     activeIndex.value = activeIndex.value === 0 ? 0 : activeIndex.value - 1;
   }
 }
 
 const handleWheelThrottled = throttle(handleWheel, 250);
 
-function getRandomColor(): string {
-  if (!colors.length) return "stroke-(--pz-neon)";
-  const index = Math.floor(Math.random() * colors.length);
-  return colors[index] ?? "stroke-(--pz-neon)";
-}
-
 onMounted(() => {
-  if (!colors || colors.length === 0) {
-    cardColors.value = Array(CARDS).fill("stroke-(--pz-neon)");
-  } else {
-    // generate a color for each card
-    cardColors.value = Array.from({ length: CARDS }, getRandomColor);
+  // only runs on client
+  if (colors && colors.length > 0) {
+    // randomize colors once client is here
+    cardColors.value = Array.from({ length: CARDS }, () => getRandomColor());
   }
 
   window.addEventListener("wheel", handleWheelThrottled);
+  isReady.value = true;
 });
 
 onBeforeUnmount(() => {
@@ -56,13 +61,17 @@ onBeforeUnmount(() => {
 <template>
   <section class="h-screen sect-container relative">
     <div class="flex items-center justify-center gap-6 perspective-distant">
+      <div v-if="!isReady" class="text-sm text-(--pz-chrome)/70">
+        Initializing neural archives…
+      </div>
       <div
+        v-else
         :class="[
           `relative translate-y-[${translateY}] translate-x-[${translateX}] transform-3d w-[min(42vw,540px)] h-[min(28vw,360px)] `,
         ]"
       >
         <NeuralArchiveCard
-          v-for="(archive, index) in data"
+          v-for="(archive, index) in archives"
           :key="index"
           :index="index"
           :active-index="activeIndex"
@@ -70,7 +79,8 @@ onBeforeUnmount(() => {
           :STEP_X="STEP_X"
           :STEP_Y="STEP_Y"
           :STEP_Z="STEP_Z"
-          :card-color="cardColors[index]"
+          :card-color="cardColors[index] ?? 'stroke-(--pz-neon)'"
+          @card-click="handleNeuralCardSelection(index)"
         />
       </div>
     </div>
