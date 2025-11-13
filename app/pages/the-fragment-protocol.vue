@@ -1,8 +1,22 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from "vue";
+import {throttle} from '@/utils/throttle'
 import * as THREE from "three";
 const divRef = ref<HTMLElement | null>(null);
 
+
+function handleResize(){
+  if (!divRef.value || !renderer || !camera) return
+  const width = divRef.value.clientWidth || window.innerWidth
+  const height = divRef.value.clientHeight || window.innerHeight
+
+  renderer.setSize(width, height)
+  camera.aspect = width / height
+  camera.updateProjectionMatrix()
+}
+
+
+const handleResiseThrottled = throttle(handleResize, 150)
 let renderer: THREE.WebGLRenderer | null = null;
 let camera: THREE.PerspectiveCamera | null = null;
 let cube: THREE.Mesh | null = null;
@@ -21,7 +35,7 @@ function animate() {
   cube.rotation.y += 0.01;
   //breathe params
   const amplitude = 0.12 // grows/ shrinks
-  const speed = 0.8 // how fast it breathes
+  const speed = 0.5 // how fast it breathes
   const scale = 1 + amplitude * Math.sin(t * speed)
   cube.scale.set(scale, scale, scale)
 
@@ -34,6 +48,9 @@ function animate() {
 
 onMounted(() => {
   if (!divRef.value) return;
+
+  //add resize event
+  window.addEventListener("resize", handleResiseThrottled)
 
   // init width and height
   const width = divRef.value.clientWidth || window.innerWidth;
@@ -87,6 +104,10 @@ onBeforeUnmount(() => {
   if (frameId !== null) {
     cancelAnimationFrame(frameId);
   }
+
+  //remove and cancel the resize event
+  window.removeEventListener('resize', handleResiseThrottled)
+  handleResiseThrottled.cancel()
 });
 </script>
 
