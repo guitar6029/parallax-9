@@ -9,11 +9,16 @@ defineProps<{
   STEP_Z: number;
   cardColor: string | undefined;
 }>();
+
+defineEmits<{
+  (e: "cardClick"): void;
+}>();
 </script>
 
 <template>
   <div
     :key="index"
+    @click="$emit('cardClick')"
     class="absolute trns hover:rotate-[-5deg] group hover:-translate-y-20 hover:-translate-x-10 will-change-transform inset-0 w-full backface-hidden"
     :style="`transform: translateX(${(index - activeIndex) * STEP_X}px)
             translateY(${(index - activeIndex) * STEP_Y}px)
