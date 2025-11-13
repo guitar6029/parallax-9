@@ -1,28 +1,21 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { throttle } from "@/utils/throttle";
-import CardCircuits from "~/ui/Card/CardCircuits.vue";
+import NeuralArchiveCard from "~/ui/Card/NueralAchiveCard.vue";
 import data from "@/assets/data/archives/archives.json";
+import {
+  STEP_X,
+  STEP_Y,
+  STEP_Z,
+  colors,
+  translateX,
+  translateY,
+} from "@/utils/NeuralAchiveUtils";
 const activeIndex = ref(0);
 const CARDS = data.length;
-const STEP_X = 150;
-const STEP_Y = 30;
-const STEP_Z = 40;
-const colors = [
-  "stroke-(--pz-neon)",
-  "stroke-(--pz-yellow)",
-  "stroke-(--pz-yellow-glow)",
-  "stroke-(--pz-neon-2)",
-  "stroke-(--pz-purple)",
-];
-
-const translateX = "-15vw";
-const translateY = "-10vh";
-
 const cardColors = ref<string[]>([]);
 
 function handleWheel(e: WheelEvent) {
-  console.log("e : ", e);
   if (Math.sign(e.deltaY) === -1) {
     // wheel up
     activeIndex.value =
@@ -68,44 +61,18 @@ onBeforeUnmount(() => {
           `relative translate-y-[${translateY}] translate-x-[${translateX}] transform-3d w-[min(42vw,540px)] h-[min(28vw,360px)] `,
         ]"
       >
-        <div
+        <NeuralArchiveCard
           v-for="(archive, index) in data"
           :key="index"
-          class="absolute trns hover:rotate-[-5deg] group hover:-translate-y-20 hover:-translate-x-10 will-change-transform inset-0 w-full backface-hidden"
-          :style="`transform: translateX(${(index - activeIndex) * STEP_X}px)
-            translateY(${(index - activeIndex) * STEP_Y}px)
-            translateZ(${(index - activeIndex) * STEP_Z}px)
-            rotateX(-10deg) rotateY(-50deg)
-            `"
-        >
-          <div class="absolute h-fit inset-0 z-1">
-            <CardCircuits
-              :class="[
-                'stroke-4 w-full fill-(--pz-bg-2) trns group-hover:fill-(--pz-neon)',
-                cardColors[index],
-                { 'fill-(--pz-yellow-glow)': activeIndex === index },
-              ]"
-            />
-          </div>
-          <div
-            class="absolute -top-10 translate-x-1/2 z-10 flex flex-col gap-2"
-          >
-            <span
-              :class="[
-                'font-tech p-2 bg-(--pz-yellow-glow) text-black rounded-xl',
-                { 'text-4xl': activeIndex === index },
-              ]"
-              >{{ archive.title }}</span
-            >
-          </div>
-        </div>
+          :index="index"
+          :active-index="activeIndex"
+          :title="archive.title"
+          :STEP_X="STEP_X"
+          :STEP_Y="STEP_Y"
+          :STEP_Z="STEP_Z"
+          :card-color="cardColors[index]"
+        />
       </div>
     </div>
   </section>
 </template>
-<style scoped>
-.shadow-layer {
-  box-shadow: 0 0 40px var(--pz-neon);
-  opacity: calc(1 - var(--depthFactor, 3px));
-}
-</style>
