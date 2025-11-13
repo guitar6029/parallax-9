@@ -13,6 +13,7 @@ import {
   translateY,
 } from "@/utils/NeuralAchiveUtils";
 
+const isModalArchiveShowing = ref(false);
 const activeIndex = ref(0);
 const archives = Array.isArray(data) ? data : [];
 const CARDS = archives.length;
@@ -24,8 +25,7 @@ const selectedArchive = ref<number | null>(null);
 const isReady = ref(false);
 
 function handleNeuralCardSelection(index: number) {
-  selectedArchive.value = index;
-  console.log("Selected Archive Index:", selectedArchive.value);
+  selectedArchive.value = archives[index];
 }
 
 function handleWheel(e: WheelEvent) {
@@ -64,6 +64,7 @@ onBeforeUnmount(() => {
       <div v-if="!isReady" class="text-sm text-(--pz-chrome)/70">
         Initializing neural archives…
       </div>
+
       <div
         v-else
         :class="[
