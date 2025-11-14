@@ -87,18 +87,18 @@ onMounted(() => {
 
   const wallMaterial = new THREE.MeshStandardMaterial({
     map: wallMap,
-    roughness: 0.9,
+    roughness: 0.95,
     metalness: 0.0
   });
 
-  wallMaterial.color.set(0x555555)
+  wallMaterial.color.set(0x444444)
 
   const geoRockWall = new THREE.PlaneGeometry(50, 35);
   wall = new THREE.Mesh(geoRockWall, wallMaterial);
   // change the position for the wall
   wall.position.x = 0;
   wall.position.y = 0;
-  wall.position.z = -28;
+  wall.position.z = -10;
 
   // add wall to the scene
   scene.add(wall);
