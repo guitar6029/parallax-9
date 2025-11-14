@@ -1,43 +1,42 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from "vue";
-import {throttle} from '@/utils/throttle'
+import { throttle } from "@/utils/throttle";
 import * as THREE from "three";
 const divRef = ref<HTMLElement | null>(null);
 
+function handleResize() {
+  if (!divRef.value || !renderer || !camera) return;
+  const width = divRef.value.clientWidth || window.innerWidth;
+  const height = divRef.value.clientHeight || window.innerHeight;
 
-function handleResize(){
-  if (!divRef.value || !renderer || !camera) return
-  const width = divRef.value.clientWidth || window.innerWidth
-  const height = divRef.value.clientHeight || window.innerHeight
-
-  renderer.setSize(width, height)
-  camera.aspect = width / height
-  camera.updateProjectionMatrix()
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
 }
 
-
-const handleResiseThrottled = throttle(handleResize, 150)
+const handleResiseThrottled = throttle(handleResize, 150);
 let renderer: THREE.WebGLRenderer | null = null;
 let camera: THREE.PerspectiveCamera | null = null;
 let cube: THREE.Mesh | null = null;
+let wall: THREE.Mesh | null = null;
 let scene: THREE.Scene | null = null;
 let frameId: number | null = null;
 
-const clock = new THREE.Clock() 
+const clock = new THREE.Clock();
 
 function animate() {
   if (!renderer || !scene || !camera || !cube) return;
 
-  const t = clock.getElapsedTime()
+  const t = clock.getElapsedTime();
 
   // rotate
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
   //breathe params
-  const amplitude = 0.12 // grows/ shrinks
-  const speed = 0.5 // how fast it breathes
-  const scale = 1 + amplitude * Math.sin(t * speed)
-  cube.scale.set(scale, scale, scale)
+  const amplitude = 0.12; // grows/ shrinks
+  const speed = 0.5; // how fast it breathes
+  const scale = 1 + amplitude * Math.sin(t * speed);
+  cube.scale.set(scale, scale, scale);
 
   //render
   renderer.render(scene, camera);
@@ -50,7 +49,7 @@ onMounted(() => {
   if (!divRef.value) return;
 
   //add resize event
-  window.addEventListener("resize", handleResiseThrottled)
+  window.addEventListener("resize", handleResiseThrottled);
 
   // init width and height
   const width = divRef.value.clientWidth || window.innerWidth;
@@ -60,12 +59,12 @@ onMounted(() => {
   scene = new THREE.Scene();
 
   //lights
-  const ambient = new THREE.AmbientLight(0xffffff, 0.4)
-  scene.add(ambient)
+  const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+  scene.add(ambient);
 
-  const dir = new THREE.DirectionalLight(0xffffff, 1)
-  dir.position.set(4,6,2)
-  scene.add(dir)
+  const dir = new THREE.DirectionalLight(0xffffff, 1);
+  dir.position.set(4, 6, 2);
+  scene.add(dir);
 
   //camera init
   camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -77,10 +76,32 @@ onMounted(() => {
   renderer.setClearColor(0x050510);
   divRef.value?.appendChild(renderer.domElement);
 
-  // texture 
-  const textureLoader = new THREE.TextureLoader()
+  // texture
+  const textureLoader = new THREE.TextureLoader();
   //load the image
-  const colorMap = textureLoader.load('/textures/metal_plate_02_diff_4k.jpg')
+  const colorMap = textureLoader.load("/textures/metal_plate_02_diff_4k.jpg");
+
+  //wall texture
+  const wallRockyLoader = new THREE.TextureLoader();
+  const wallMap = wallRockyLoader.load("/textures/rock_wall_09_diff_4k.jpg");
+
+  const wallMaterial = new THREE.MeshStandardMaterial({
+    map: wallMap,
+    roughness: 0.9,
+    metalness: 0.0
+  });
+
+  wallMaterial.color.set(0x555555)
+
+  const geoRockWall = new THREE.PlaneGeometry(50, 35);
+  wall = new THREE.Mesh(geoRockWall, wallMaterial);
+  // change the position for the wall
+  wall.position.x = 0;
+  wall.position.y = 0;
+  wall.position.z = -28;
+
+  // add wall to the scene
+  scene.add(wall);
 
   //create a shape
   //const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -89,8 +110,8 @@ onMounted(() => {
   const material = new THREE.MeshStandardMaterial({
     map: colorMap,
     metalness: 0.8,
-    roughness: 0.4
-  })
+    roughness: 0.4,
+  });
   cube = new THREE.Mesh(geometry, material);
 
   scene.add(cube);
@@ -106,11 +127,11 @@ onBeforeUnmount(() => {
   }
 
   //remove and cancel the resize event
-  window.removeEventListener('resize', handleResiseThrottled)
-  handleResiseThrottled.cancel()
+  window.removeEventListener("resize", handleResiseThrottled);
+  handleResiseThrottled.cancel();
 });
 </script>
 
 <template>
-    <div ref="divRef"></div>
+  <div ref="divRef"></div>
 </template>
