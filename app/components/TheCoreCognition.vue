@@ -103,6 +103,18 @@ onMounted(() => {
   // add wall to the scene
   scene.add(wall);
 
+  //add more walls 
+  const leftWall = new THREE.Mesh(geoRockWall, wallMaterial)
+  leftWall.position.set(-8, 0, -7)
+  leftWall.rotation.y = Math.PI / 4
+  scene.add(leftWall)
+
+  //right wall
+  const rightWall = new THREE.Mesh(geoRockWall, wallMaterial)
+  rightWall.position.set(8, 0,-7)
+  rightWall.rotation.y = -Math.PI / 4
+  scene.add(rightWall)
+
   //create a shape
   //const geometry = new THREE.BoxGeometry(1, 1, 1);
   const geometry = new THREE.IcosahedronGeometry(1, 0);
