@@ -17,16 +17,16 @@ export const navItems: NavigationMenuItem[] = [
     to: "/constructs",
     label: "Constructs",
   },
-  {
-    to: "/the-vision",
-    label: "The Vision",
-  },
-  {
-    to: "/inquiry",
-    label: "Inquiry",
-  },
-  {
-    to: "/legal",
-    label: "Legal",
-  },
+  // {
+  //   to: "/the-vision",
+  //   label: "The Vision",
+  // },
+  // {
+  //   to: "/inquiry",
+  //   label: "Inquiry",
+  // },
+  // {
+  //   to: "/legal",
+  //   label: "Legal",
+  // },
 ];
