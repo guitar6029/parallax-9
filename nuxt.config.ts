@@ -15,4 +15,9 @@ export default defineNuxtConfig({
       { name: "Exo 2", weights: [400, 500, 700] },
     ],
   },
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ["model-viewer"].includes(tag),
+    },
+  },
 });
