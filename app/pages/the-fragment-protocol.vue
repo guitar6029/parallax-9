@@ -2,7 +2,7 @@
 import TheCoreCognition from "~/components/TheCoreCognition.vue";
 import { onMounted, ref, computed } from "vue";
 const SCENE_SWITCHER_TIME_IN_SECONDS = 10500;
-const initialView = ref<"intro" | "theCoreCognition">("theCoreCognition");
+const initialView = ref<"intro" | "theCoreCognition">("intro");
 
 // definePageMeta({ layout: 'main' })
 

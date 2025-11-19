@@ -26,7 +26,7 @@ onBeforeUnmount(() => {
         src="/models/the_core_cognition.glb"
         camera-controls
         autoplay
-        animation-name="Hover"
+        animation-name="Action"
         shadow-intensity="1"
         class="w-full h-full"
         />
