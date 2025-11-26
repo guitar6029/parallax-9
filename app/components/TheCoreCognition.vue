@@ -18,9 +18,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="sect-container h-screen w-full">
+  <div class="sect-container h-screen w-full relative">
     <div class="flex flex-col gap-2  items-center justify-center w-full h-full">
-      <span class="cyber text-4xl">The Core</span>
+      <span class="cyber text-6xl z-20">The Core</span>
       <ClientOnly>
         <model-viewer
         src="/models/the_core_cognition.glb"
@@ -28,7 +28,7 @@ onBeforeUnmount(() => {
         autoplay
         animation-name="Action"
         shadow-intensity="1"
-        class="w-full h-full"
+        class="w-full h-full bg-transparent absolute top-20 right-100"
         />
       </ClientOnly>
     </div>
