@@ -20,12 +20,14 @@ const CARDS = archives.length;
 
 // start with safe default colors (SSR + first render)
 const cardColors = ref<string[]>(Array(CARDS).fill("stroke-(--pz-neon)"));
-
-const selectedArchive = ref<number | null>(null);
 const isReady = ref(false);
 
+type Archive = (typeof archives)[number];
+
+const selectedArchive = ref<Archive | null>(null);
+
 function handleNeuralCardSelection(index: number) {
-  selectedArchive.value = archives[index];
+  selectedArchive.value = archives[index] ?? null;
 }
 
 function handleWheel(e: WheelEvent) {
@@ -45,7 +47,9 @@ onMounted(() => {
   // only runs on client
   if (colors && colors.length > 0) {
     // randomize colors once client is here
-    cardColors.value = Array.from({ length: CARDS }, () => getRandomColor());
+    cardColors.value = Array.from({ length: CARDS }, () =>
+      getRandomColor(colors)
+    );
   }
 
   window.addEventListener("wheel", handleWheelThrottled);
