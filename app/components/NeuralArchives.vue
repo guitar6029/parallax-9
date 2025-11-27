@@ -13,7 +13,6 @@ import {
   translateY,
 } from "@/utils/NeuralAchiveUtils";
 
-const isModalArchiveShowing = ref(false);
 const activeIndex = ref(0);
 const archives = Array.isArray(data) ? data : [];
 const CARDS = archives.length;
