@@ -113,6 +113,11 @@
   text-transform: uppercase;
 }
 
+html,
+body {
+  cursor: none;
+}
+
 /* GENERIC STYLES */
 body {
   font-family: "Exo 2", sans-serif;
@@ -213,7 +218,6 @@ body {
   background-size: 100% 3px;
   mix-blend-mode: overlay;
 }
-
 
 .ring-neon {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
