@@ -7,6 +7,12 @@ import PanelLink from '~/ui/Panels/PanelLink.vue'
 import VerticalSquares from '~/ui/accents/VerticalSquares.vue'
 import Panel1 from "~/ui/Panels/Panel-1.vue"
 
+const route = useRoute()
+
+function isActive(path: string){
+    return route.path === path || route.path.startsWith(path + '/')
+}
+
 const isMenuForSmallerScreenDisplaying = ref(false)
 const currentWindowSize = ref(0)
 const hasMounted = ref(false)
@@ -82,7 +88,7 @@ onBeforeUnmount(() => {
                 size="4rem" class="absolute top-1 right-5 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
             <nav class="flex flex-col gap-10">
                 <div class="cyber" v-for="item in navItems" :key="item.label">
-                    <NuxtLink @click="isMenuForSmallerScreenDisplaying = false" :to="item.to"
+                    <NuxtLink :class="[isActive(item.to as string) ? 'text-(--pz-neon)' : '']" @click="isMenuForSmallerScreenDisplaying = false" :to="item.to"
                         class="group inline-flex items-center justify-center trns hover:text-(--pz-neon) relative cursor-pointer p-12">
                         <div class="absolute inset-0 z-1">
                             <Panel1 width="w-full h-full" />
@@ -112,7 +118,7 @@ onBeforeUnmount(() => {
         <!-- Middle Section -->
         <nav class="flex flex-col items-center gap-2">
             <div class="cyber text-2xl" v-for="item in navItems" :key="item.label">
-                <PanelLink :to-path="item.to" :label="item.label" />
+                <PanelLink :isActive="isActive(item.to as string)" :to-path="item.to" :label="item.label" />
             </div>
         </nav>
         <!-- Bottom section -->
