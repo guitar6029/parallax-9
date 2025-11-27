@@ -9,7 +9,7 @@
 
     <NuxtLink
       to="/"
-      class="mt-6 px-6 py-2 border border-(--pz-neon)/60 hover:bg-(--pz-neon)/10 font-mono text-xl"
+      class="mt-2 px-6 py-2 border border-(--pz-neon)/60 hover:bg-(--pz-neon)/10 font-mono text-xl"
     >
       Return to Gateway
     </NuxtLink>
