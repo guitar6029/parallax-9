@@ -1,6 +1,6 @@
-export const STEP_X = 150;
-export const STEP_Y = 30;
-export const STEP_Z = 40;
+export const STEP_X = 250;
+export const STEP_Y = -20;
+export const STEP_Z = 50;
 export const colors = [
   "stroke-(--pz-neon)",
   "stroke-(--pz-yellow)",
