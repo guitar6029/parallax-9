@@ -1,75 +1,71 @@
-# Nuxt Minimal Starter
+✦ PARALLAX-9
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Cyberpunk-Inspired Interactive Web Experience
 
-## Setup
+Parallax-9 is an experimental concept interface built to explore cyberpunk UI themes, immersive motion design, and futuristic navigation patterns. Inspired by dystopian system terminals and neon-lit data archives, the project blends 3D assets, animated panels, and reactive UI behaviors into a cohesive sci-fi experience.
 
-Make sure to install dependencies:
+This is not a traditional app — it is a concept environment, a visual/interactive showcase of creativity, motion, and front-end engineering skill.
 
-```bash
-# npm
-npm install
+✦ Live Demo
 
-# pnpm
-pnpm install
+https://parallax-9.vercel.app
 
-# yarn
-yarn install
+(Hosted on Vercel)
 
-# bun
-bun install
+✦ Features
+
+Cyberpunk UI System Neon panels, angular shapes, animated accents, deep-contrast layouts.
+
+Immersive Navigation Animated sidebars, active state transitions, section depth effects, and smooth UX flows.
+
+CMC (Construct Memory Core) Simulation Includes a fake loading sequence, status changes, and a deliberate “system failure” mode.
+
+3D Integration Custom Blender-made models rendered using Google Model Viewer for performance and compatibility.
+
+Custom Cursor System Optional futuristic pointer with glow effects and parallax motion.
+
+Dynamic Panels & Components Reusable cyber-styled UI pieces (Panel-1, Panel-2, NeuralArchiveCard, etc.).
+
+Responsive Layout Optimized for both large display environments and small/mobile screens.
+
+✦ Tech Stack Frontend
+
+Nuxt 4 (App Framework)
+
+Vue 3 + Composition API
+
+TailwindCSS 4 (Utility styling, custom themes)
+
+Google Model Viewer (3D rendering)
+
+GSAP / CSS Transitions (for motion & micro-interactions — optional depending on final setup)
+
+Design Tools
+
+Blender — creation of shards, core models, and geometric components
+
+Pixabay — ambient system sounds & effects
+
+Adobe / Figma — UI mockups (optional workflow)
+
+Hosting
+
+Vercel — SSR + static asset hosting
+
+✦ 3D Model Workflow
+
+Designed in Blender
+
+Exported as .glb
+
+Served through public/models/*
+
+Rendered using:
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+<model-viewer
+  src="/models/core.glb"
+  autoplay
+  camera-controls
+  disable-zoom
+></model-viewer>
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
