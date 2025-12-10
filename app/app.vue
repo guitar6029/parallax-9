@@ -3,7 +3,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 const ready = ref(false);
 const x = ref(0);
 const y = ref(0);
-const visible = ref(false);
+const visible = ref(true);
 
 function handleMove(e: PointerEvent) {
   x.value = e.clientX;
