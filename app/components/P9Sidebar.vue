@@ -85,11 +85,11 @@ onBeforeUnmount(() => {
 
 
             <Icon @click="isMenuForSmallerScreenDisplaying = false" name="material-symbols:cancel-presentation"
-                size="4rem" class="absolute top-1 right-5 cursor-pointer trns hover:text-(--pz-neon)">X</Icon>
+                size="4rem" class="absolute top-1 right-5 cursor-none trns hover:text-(--pz-neon)">X</Icon>
             <nav class="flex flex-col gap-10">
                 <div class="cyber" v-for="item in navItems" :key="item.label">
                     <NuxtLink :class="[isActive(item.to as string) ? 'text-(--pz-neon)' : '']" @click="isMenuForSmallerScreenDisplaying = false" :to="item.to"
-                        class="group inline-flex items-center justify-center trns hover:text-(--pz-neon) relative cursor-pointer p-12">
+                        class="group inline-flex items-center justify-center trns hover:text-(--pz-neon) relative cursor-none p-12">
                         <div class="absolute inset-0 z-1">
                             <Panel1 width="w-full h-full" />
                         </div>
