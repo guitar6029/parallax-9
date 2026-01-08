@@ -12,7 +12,9 @@ function handleMove(e: PointerEvent) {
 }
 
 onMounted(() => {
-  if (typeof window === "undefined") return;
+  x.value = window.innerWidth / 2;
+  y.value = window.innerHeight / 2;
+  visible.value = true;
   window.addEventListener("pointermove", handleMove);
   ready.value = true;
 });
